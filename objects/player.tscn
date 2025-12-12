@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgo4pvbpvl0go"]
+
+[ext_resource type="Script" uid="uid://bbs0t563smuk8" path="res://objects/player.gd" id="1_ykyjo"]
+[ext_resource type="Texture2D" uid="uid://f6d6jgjxpf5i" path="res://assets/textures/player/normal.png" id="2_uxov2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sugp2"]
+radius = 42.0
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_ykyjo")
+speed = 20
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sugp2")
+
+[node name="Normal" type="Sprite2D" parent="."]
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.08837893, 0.08837893)
+texture = ExtResource("2_uxov2")
