@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5gljso0rd8bj"]
+
+[ext_resource type="Script" uid="uid://blgossjq5tcvo" path="res://misc_script/inventory.gd" id="1_ty45s"]
+[ext_resource type="Texture2D" uid="uid://diudvfifsmnc1" path="res://assets/textures/objects/inventory.png" id="2_53g1v"]
+[ext_resource type="Texture2D" uid="uid://dr41oo2oursqe" path="res://assets/textures/objects/fish.png" id="3_yyk2a"]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_ty45s")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(7, 10)
+scale = Vector2(0.046875, 0.046875)
+texture = ExtResource("2_53g1v")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="PlaceHolder" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(11.000001, 22)
+scale = Vector2(0.011230469, 0.011230469)
+texture = ExtResource("3_yyk2a")
+
+[node name="PlaceHolder2" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(-1.0000007, 23.000002)
+rotation = -0.47472957
+scale = Vector2(0.011230469, 0.011230469)
+texture = ExtResource("3_yyk2a")
+
+[node name="PlaceHolder3" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(-3, 12)
+rotation = 0.5934119
+scale = Vector2(0.011230469, 0.011230469)
+texture = ExtResource("3_yyk2a")
+
+[node name="PlaceHolder4" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(12, 11)
+rotation = -0.59166664
+scale = Vector2(0.011230469, 0.011230469)
+texture = ExtResource("3_yyk2a")
+
+[node name="PlaceHolder5" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(4, 0.9999999)
+rotation = 0.7120943
+scale = Vector2(0.011230469, 0.011230469)
+texture = ExtResource("3_yyk2a")
+
+[node name="PlaceHolder6" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(17, 0)
+rotation = 2.4905849
+scale = Vector2(0.011230469, 0.011230469)
+texture = ExtResource("3_yyk2a")
+
+[node name="PlaceHolder7" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(-4, -8.000001)
+rotation = 1.7924532
+scale = Vector2(0.011230469, 0.011230469)
+texture = ExtResource("3_yyk2a")
+
+[node name="PlaceHolder8" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(13, -11)
+rotation = 3.9269907
+scale = Vector2(0.011230469, 0.011230469)
+texture = ExtResource("3_yyk2a")

@@ -14,24 +14,32 @@ enum PlayerInteractionType {
 	NONE,
 }
 
-var inventory = {}
+func get_item_image(type: ItemType) -> Resource:
+	match type:
+		ItemType.FISH:
+			return load("res://assets/textures/inventory/fish.png")
+		ItemType.ALGAE:
+			return load("res://assets/textures/inventory/algae.png")
+		ItemType.MUSHROOM:
+			return load("res://assets/textures/inventory/mushroom.png")
+	return null
+
+var inventory: Array[ItemType] = []
 var player_can_interact: PlayerInteractionType = PlayerInteractionType.NONE
 
 func add_item(item: ItemType) -> bool:
 	if can_pickup(item):
-		if item in inventory:
-			inventory[item] += 1
-		else:
-			inventory[item] = 1
+		inventory.append(item)
 		print("Plus 1", item)
 		return true
 	return false
 	
 func can_pickup(item: ItemType) -> bool:
-	return (item not in inventory) or inventory[item] < max_item
+	return (item not in inventory) or inventory.count(item) < max_item
 
 func consume_item(item: ItemType) -> bool:
 	if item in inventory:
-		inventory.erase(item)
+		while item in inventory:
+			inventory.erase(item)
 		return true
 	return false

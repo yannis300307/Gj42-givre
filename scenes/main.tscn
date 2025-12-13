@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dcb808weh1jp7"]
 
-[ext_resource type="Texture2D" uid="uid://wkxskaqy8mrd" path="res://assets/textures/map/floor.png" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://wgnbrn6ioea2" path="res://assets/textures/map/floor.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bgo4pvbpvl0go" path="res://objects/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://b8nrxqwctugxs" path="res://misc_script/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://d0so6wnbntblo" path="res://misc_script/camera.gd" id="2_sugp2"]
@@ -15,7 +15,7 @@ script = ExtResource("1_tbgi4")
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="Map"]
-position = Vector2(1.9073486e-06, 0)
+position = Vector2(1.9073486e-06, -1)
 scale = Vector2(1.4433594, 1.5722656)
 texture = ExtResource("1_0wfyh")
 
