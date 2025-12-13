@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcb808weh1jp7"]
+[gd_scene load_steps=9 format=3 uid="uid://dcb808weh1jp7"]
 
 [ext_resource type="Texture2D" uid="uid://wkxskaqy8mrd" path="res://assets/textures/map/floor.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bgo4pvbpvl0go" path="res://objects/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://b8nrxqwctugxs" path="res://misc_script/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://d0so6wnbntblo" path="res://misc_script/camera.gd" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://dr41oo2oursqe" path="res://assets/textures/objects/fish.png" id="4_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dfth80igv5ms4" path="res://objects/item_pool.tscn" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dhq85m1i2ovmb" path="res://assets/textures/objects/algae.png" id="5_tipki"]
+[ext_resource type="Texture2D" uid="uid://dd6qlq3x3aijh" path="res://assets/textures/objects/mushroom.png" id="6_tipki"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tbgi4")
@@ -16,6 +19,37 @@ position = Vector2(1.9073486e-06, 0)
 scale = Vector2(1.4433594, 1.5722656)
 texture = ExtResource("1_0wfyh")
 
+[node name="Temp" type="Node2D" parent="."]
+
+[node name="ItemPool" parent="Temp" instance=ExtResource("5_tbgi4")]
+position = Vector2(148, 15)
+scale = Vector2(4.92, 7.005)
+
+[node name="ItemPool2" parent="Temp" instance=ExtResource("5_tbgi4")]
+position = Vector2(-135.00003, -265)
+scale = Vector2(4.92, 7.005)
+item_type = 2
+
+[node name="ItemPool3" parent="Temp" instance=ExtResource("5_tbgi4")]
+position = Vector2(279.00006, -242.00003)
+scale = Vector2(4.92, 7.005)
+item_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Temp"]
+position = Vector2(148.24997, 14.749996)
+scale = Vector2(0.09521492, 0.13720705)
+texture = ExtResource("4_o6xl0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Temp"]
+position = Vector2(-135.00002, -265)
+scale = Vector2(0.09521492, 0.13720705)
+texture = ExtResource("5_tipki")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Temp"]
+position = Vector2(278, -242)
+scale = Vector2(0.09521492, 0.13720705)
+texture = ExtResource("6_tipki")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -25,8 +59,4 @@ player_direction_offset = 150
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
-speed = 45.0
-
-[node name="ItemPool" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(148, 15)
-scale = Vector2(4.92, 7.005)
+speed = 20.0

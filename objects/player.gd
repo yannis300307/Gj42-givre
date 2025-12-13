@@ -1,14 +1,24 @@
 extends RigidBody2D
 
-@export var speed: float = 45
-var velocity: Vector2 = Vector2.ZERO # The player's movement vector.
+@export var speed: float = 35
 var acceleration: float = 0
 
 var direction = Vector2.ZERO
+var velocity: Vector2 = Vector2.ZERO # The player's movement vector.
+
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _process(_delta: float) -> void:
+	match Global.player_can_interact:
+		Global.PlayerInteractionType.PICKUP_ITEM:
+			$ControlsLabels/Pickup.visible = true
+			$ControlsLabels/Place.visible = false
+		Global.PlayerInteractionType.PLACE_ITEM:
+			$ControlsLabels/Pickup.visible = false
+			$ControlsLabels/Place.visible = true
+		Global.PlayerInteractionType.NONE:
+			$ControlsLabels/Pickup.visible = false
+			$ControlsLabels/Place.visible = false
 
 func _physics_process(delta: float) -> void:
 	var acc_state: int = 0
@@ -36,7 +46,8 @@ func _physics_process(delta: float) -> void:
 			acceleration -= (0x5f3759df / 10e8) * delta
 			acceleration = max(acceleration, 0)
 		direction.y = 0
-	rotation_degrees = direction.angle() / PI * 180 + 90
+	if direction.x or direction.y:
+		$Normal.rotation = direction.angle()
 	var tmp: float = ease_out_expo(acceleration) * speed * delta
 	velocity.y = tmp * direction.y
 	velocity.x = tmp * direction.x

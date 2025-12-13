@@ -8,15 +8,22 @@ enum ItemType {
 	ALGAE,
 }
 
+enum PlayerInteractionType {
+	PICKUP_ITEM,
+	PLACE_ITEM,
+	NONE,
+}
+
 var inventory = {}
+var player_can_interact: PlayerInteractionType = PlayerInteractionType.NONE
 
 func add_item(item: ItemType) -> bool:
-	print(inventory)
 	if can_pickup(item):
 		if item in inventory:
 			inventory[item] += 1
 		else:
 			inventory[item] = 1
+		print("Plus 1", item)
 		return true
 	return false
 	
