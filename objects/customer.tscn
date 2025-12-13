@@ -63,8 +63,8 @@ _data = {
 [node name="Customer" type="Area2D"]
 script = ExtResource("1_bwvtj")
 walking_speed = 0.2
-movements_pos = null
-bar_point_index = null
+
+[node name="Effects" type="Node2D" parent="."]
 
 [node name="TextureContainer" type="Node2D" parent="."]
 position = Vector2(0, -0.201)

@@ -17,7 +17,11 @@ enum CustomerState {
 }
 
 func _ready() -> void:
+	for child in get_children():
+		if child.name.begins_with("Under"):
+			child.reparent($Effects)
 	get_node("Texture").reparent($TextureContainer)
+
 	$Animator.play("Druck")
 	state = CustomerState.WAITING_AWAY
 	if len(movements_pos) > 0:
