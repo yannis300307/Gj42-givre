@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgo4pvbpvl0go"]
+[gd_scene load_steps=17 format=3 uid="uid://bgo4pvbpvl0go"]
 
 [ext_resource type="Script" uid="uid://bbs0t563smuk8" path="res://objects/player.gd" id="1_ykyjo"]
+[ext_resource type="Texture2D" uid="uid://bqt0kr8rghwxr" path="res://assets/textures/particles/stink.png" id="2_4vq5b"]
 [ext_resource type="Texture2D" uid="uid://c5gcgnc0ohe82" path="res://assets/textures/player/player1.png" id="3_4vq5b"]
 [ext_resource type="Texture2D" uid="uid://d03tl50sg44m8" path="res://assets/textures/player/player2.png" id="4_3nfmf"]
 [ext_resource type="Texture2D" uid="uid://b8aaknx7qn5kl" path="res://assets/textures/player/player3.png" id="5_42cpl"]
@@ -13,6 +14,26 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8sra"]
 radius = 9.0
 height = 25.0
+
+[sub_resource type="Curve" id="Curve_4vq5b"]
+_data = [Vector2(0, 0.70786524), 0.0, 0.0, 0, 0, Vector2(0.78, 0.28089893), -2.0224707, -2.0224707, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3nfmf"]
+curve = SubResource("Curve_4vq5b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3nfmf"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = -20.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.79999995
+alpha_curve = SubResource("CurveTexture_3nfmf")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s4hvt"]
 animations = [{
@@ -61,10 +82,14 @@ script = ExtResource("1_ykyjo")
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_i8sra")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture = ExtResource("2_4vq5b")
+process_material = SubResource("ParticleProcessMaterial_3nfmf")
+
 [node name="Texture" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s4hvt")
 animation = &"roll"
-frame_progress = 0.80083203
+frame_progress = 0.4518922
 speed_scale = 0.1
 
 [node name="ControlsLabels" type="Node2D" parent="."]

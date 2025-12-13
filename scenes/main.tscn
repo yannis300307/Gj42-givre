@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dcb808weh1jp7"]
+[gd_scene load_steps=49 format=3 uid="uid://dcb808weh1jp7"]
 
 [ext_resource type="Texture2D" uid="uid://daq6jl4b6ipgm" path="res://assets/textures/map/floor.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bgo4pvbpvl0go" path="res://objects/player.tscn" id="1_o5qli"]
@@ -16,10 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://bsk7bnq1juqif" path="res://assets/textures/customers/Porthos.png" id="11_a8y0u"]
 [ext_resource type="Script" uid="uid://bj1s2xd723vio" path="res://misc_script/customers_manager.gd" id="12_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://b3ebeqadua43e" path="res://assets/textures/customers/athos.png" id="12_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://05luqpiu4pi3" path="res://assets/textures/particles/smoke1.png" id="13_jscy8"]
 [ext_resource type="Texture2D" uid="uid://slydqcvtsofg" path="res://assets/textures/customers/Aramys.png" id="13_muem4"]
 [ext_resource type="Texture2D" uid="uid://djwdfth8yxyb6" path="res://assets/textures/map/mixor.png" id="14_muem4"]
+[ext_resource type="Texture2D" uid="uid://c8d4r7u6kmxjd" path="res://assets/textures/particles/smoke2.png" id="14_pm3ni"]
+[ext_resource type="Texture2D" uid="uid://jgknj61v4i4a" path="res://assets/textures/particles/ambiant smoke.png" id="15_y6deb"]
 [ext_resource type="Texture2D" uid="uid://bschwikutw7c8" path="res://assets/textures/objects/mossy_wall.png" id="18_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://bfti2qgjb8k2a" path="res://assets/textures/objects/bin.png" id="19_0ld40"]
+[ext_resource type="Texture2D" uid="uid://chfrhk4y4a1it" path="res://assets/textures/particles/flying bugs.png" id="20_yc10j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
 size = Vector2(256, 44)
@@ -52,6 +56,21 @@ distance = -145.0
 normal = Vector2(0, 1)
 distance = -113.0
 
+[sub_resource type="Curve" id="Curve_og1vs"]
+_data = [Vector2(0, 0.011235952), 0.0, 0.0, 0, 0, Vector2(0.07333334, 0.7191012), 0.6420548, 0.6420548, 0, 0, Vector2(0.89333344, 0.61797756), -0.6974037, -0.6974037, 0, 0, Vector2(1, 0), -1.1401192, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2wyq8"]
+curve = SubResource("Curve_og1vs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pm3ni"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -10, 0)
+alpha_curve = SubResource("CurveTexture_2wyq8")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm3ni"]
 size = Vector2(4, 6)
 
@@ -72,6 +91,37 @@ size = Vector2(257, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
 size = Vector2(8, 44)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yc10j"]
+lifetime_randomness = 0.15
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(20, 10, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+turbulence_enabled = true
+
+[sub_resource type="Curve" id="Curve_y6deb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113333344, 0.43820232), 0.0, 0.0, 0, 0, Vector2(0.31333333, 0.48314613), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_og1vs"]
+curve = SubResource("Curve_y6deb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y6deb"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(220, 150, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_og1vs")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_tbgi4")
@@ -194,6 +244,21 @@ bar_point_index = 2
 position = Vector2(-1, -15)
 texture = ExtResource("13_muem4")
 
+[node name="Smoke1" type="GPUParticles2D" parent="Customers/Aramys"]
+position = Vector2(-13, -13)
+amount = 10
+texture = ExtResource("13_jscy8")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_pm3ni")
+
+[node name="Smoke2" type="GPUParticles2D" parent="Customers/Aramys"]
+position = Vector2(-13, -13)
+amount = 10
+texture = ExtResource("14_pm3ni")
+lifetime = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pm3ni")
+
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
 position = Vector2(71, 32)
@@ -212,7 +277,7 @@ position = Vector2(58, 33)
 shape = SubResource("RectangleShape2D_pm3ni")
 
 [node name="Left" type="CollisionShape2D" parent="MapUpperPlayer/Table"]
-position = Vector2(-61, 33)
+position = Vector2(-58, 33)
 shape = SubResource("RectangleShape2D_pm3ni")
 
 [node name="Mixor" type="Sprite2D" parent="MapUpperPlayer"]
@@ -271,7 +336,28 @@ shape = SubResource("RectangleShape2D_trceg")
 position = Vector2(-92, 94)
 shape = SubResource("RectangleShape2D_dp3eg")
 
+[node name="Particles" type="Node2D" parent="MapUpperPlayer"]
+
+[node name="SugarCube" type="GPUParticles2D" parent="MapUpperPlayer/Particles"]
+position = Vector2(104, -78)
+texture = ExtResource("20_yc10j")
+lifetime = 20.0
+process_material = SubResource("ParticleProcessMaterial_yc10j")
+
+[node name="Bin" type="GPUParticles2D" parent="MapUpperPlayer/Particles"]
+position = Vector2(-196, 116)
+texture = ExtResource("20_yc10j")
+lifetime = 20.0
+process_material = SubResource("ParticleProcessMaterial_yc10j")
+
+[node name="Ambient" type="GPUParticles2D" parent="MapUpperPlayer/Particles"]
+amount = 10
+texture = ExtResource("15_y6deb")
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_y6deb")
+
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="Ui" instance=ExtResource("9_85g3d")]
+visible = false
 position = Vector2(171, 284.00003)
