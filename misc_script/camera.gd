@@ -9,4 +9,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	global_position = %Player.global_position + %Player.direction * player_direction_offset
+	global_position = %Player.global_position + %Player.direction * (player_direction_offset * %Player.acceleration)
