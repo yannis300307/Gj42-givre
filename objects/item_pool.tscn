@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfth80igv5ms4"]
+
+[ext_resource type="Script" uid="uid://pylel1wivlcs" path="res://objects/item_pool.gd" id="1_h4tan"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+
+[node name="ItemPool" type="Area2D"]
+script = ExtResource("1_h4tan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jyhfs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
