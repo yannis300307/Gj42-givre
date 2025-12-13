@@ -1,10 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgo4pvbpvl0go"]
+[gd_scene load_steps=13 format=3 uid="uid://bgo4pvbpvl0go"]
 
 [ext_resource type="Script" uid="uid://bbs0t563smuk8" path="res://objects/player.gd" id="1_ykyjo"]
-[ext_resource type="Texture2D" uid="uid://by68qymb8ockx" path="res://assets/textures/player/normal.png" id="2_uxov2"]
+[ext_resource type="Texture2D" uid="uid://c5gcgnc0ohe82" path="res://assets/textures/player/player1.png" id="3_4vq5b"]
+[ext_resource type="Texture2D" uid="uid://d03tl50sg44m8" path="res://assets/textures/player/player2.png" id="4_3nfmf"]
+[ext_resource type="Texture2D" uid="uid://b8aaknx7qn5kl" path="res://assets/textures/player/player3.png" id="5_42cpl"]
+[ext_resource type="Texture2D" uid="uid://bnvfv2aegbfn1" path="res://assets/textures/player/player4.png" id="6_vqq2l"]
+[ext_resource type="Texture2D" uid="uid://b0nfd4pl7n3c" path="res://assets/textures/player/player5.png" id="7_r673r"]
+[ext_resource type="Texture2D" uid="uid://ctwa0ywfnoijb" path="res://assets/textures/player/player6.png" id="8_mqnmn"]
+[ext_resource type="Texture2D" uid="uid://dijcsmvb6m00e" path="res://assets/textures/player/player7.png" id="9_5esnd"]
+[ext_resource type="Texture2D" uid="uid://cty3ua8yd5xjx" path="res://assets/textures/player/player8.png" id="10_w1o2u"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sugp2"]
-radius = 15.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8sra"]
+radius = 9.0
+height = 25.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4hvt"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.05,
+"texture": ExtResource("3_4vq5b")
+}, {
+"duration": 0.05,
+"texture": ExtResource("4_3nfmf")
+}, {
+"duration": 0.05,
+"texture": ExtResource("5_42cpl")
+}, {
+"duration": 0.05,
+"texture": ExtResource("6_vqq2l")
+}, {
+"duration": 0.05,
+"texture": ExtResource("7_r673r")
+}, {
+"duration": 0.05,
+"texture": ExtResource("8_mqnmn")
+}, {
+"duration": 0.05,
+"texture": ExtResource("9_5esnd")
+}, {
+"duration": 0.05,
+"texture": ExtResource("10_w1o2u")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ykyjo"]
 font_size = 12
@@ -14,13 +59,16 @@ font_color = Color(0, 0, 0, 1)
 script = ExtResource("1_ykyjo")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_sugp2")
+shape = SubResource("CapsuleShape2D_i8sra")
 
-[node name="Normal" type="Sprite2D" parent="."]
-position = Vector2(-4.7683716e-07, 4.7683716e-07)
-texture = ExtResource("2_uxov2")
+[node name="Texture" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s4hvt")
+animation = &"roll"
+frame_progress = 0.80083203
+speed_scale = 0.1
 
 [node name="ControlsLabels" type="Node2D" parent="."]
+z_index = 1
 position = Vector2(0, -53.95)
 
 [node name="Pickup" type="Label" parent="ControlsLabels"]
