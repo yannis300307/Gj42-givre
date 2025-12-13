@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://3odrmu7w5o0g"]
+
+[ext_resource type="Script" uid="uid://cidoaqj8ahrau" path="res://objects/customer.gd" id="1_bwvtj"]
+[ext_resource type="Texture2D" uid="uid://bsk7bnq1juqif" path="res://assets/textures/customers/Porthos.png" id="1_fu7rw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwvtj"]
+size = Vector2(20, 26)
+
+[sub_resource type="Animation" id="Animation_bwvtj"]
+resource_name = "Druck"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.15707963267948966, -0.15707964, 0.15707963267948966]
+}
+
+[sub_resource type="Animation" id="Animation_xqo2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_h8mw1"]
+resource_name = "instant_stop"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26371187, 0.28649575, 0.30602485, 0.3244689, 0.3374883, 0.35267758, 0.36461198),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.20943952, -0.19198622, 0.17453292, -0.15707964, 0.13962634, -0.12217305, 0.10471976, -0.08726646, 0.06981317, -0.05235988, 0.034906585, -0.029670598, 0.02617994, -0.017453292, 0.008726646]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xqo2o"]
+_data = {
+&"Druck": SubResource("Animation_bwvtj"),
+&"RESET": SubResource("Animation_xqo2o"),
+&"instant_stop": SubResource("Animation_h8mw1")
+}
+
+[node name="Customer" type="Area2D"]
+script = ExtResource("1_bwvtj")
+walking_speed = 0.2
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(0, -0.201)
+texture = ExtResource("1_fu7rw")
+offset = Vector2(2.2132292, -16.299376)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_bwvtj")
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xqo2o")
+}
+speed_scale = 0.5
