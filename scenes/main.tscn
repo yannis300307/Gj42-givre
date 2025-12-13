@@ -9,18 +9,22 @@
 [ext_resource type="Texture2D" uid="uid://dr41oo2oursqe" path="res://assets/textures/objects/fish.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://mtw4tsrh518n" path="res://assets/textures/map/bar.png" id="5_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dfth80igv5ms4" path="res://objects/item_pool.tscn" id="5_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://dhq85m1i2ovmb" path="res://assets/textures/objects/algae.png" id="5_tipki"]
-[ext_resource type="Texture2D" uid="uid://dd6qlq3x3aijh" path="res://assets/textures/objects/mushroom.png" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://c5gljso0rd8bj" path="res://scenes/inventory.tscn" id="9_85g3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
-size = Vector2(255, 24)
+size = Vector2(256, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
-size = Vector2(6.96875, 20)
+size = Vector2(8, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
 size = Vector2(16, 196)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
+size = Vector2(79.75, 39.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
+size = Vector2(64, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
 size = Vector2(257, 28)
@@ -31,8 +35,7 @@ script = ExtResource("1_tbgi4")
 [node name="MapUnderPlayer" type="Node2D" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="MapUnderPlayer"]
-position = Vector2(-1.0000005, 22)
-scale = Vector2(1, 1.089)
+position = Vector2(-1, 16)
 texture = ExtResource("1_0wfyh")
 
 [node name="TopWall2" type="StaticBody2D" parent="MapUnderPlayer"]
@@ -42,11 +45,11 @@ position = Vector2(32, -52)
 texture = ExtResource("4_eb6dy")
 
 [node name="Collision" type="CollisionShape2D" parent="MapUnderPlayer/TopWall2"]
-position = Vector2(32.5, -68)
+position = Vector2(32, -68)
 shape = SubResource("RectangleShape2D_a8y0u")
 
 [node name="Collision2" type="CollisionShape2D" parent="MapUnderPlayer/TopWall2"]
-position = Vector2(-91.484375, -46)
+position = Vector2(-92, -29)
 shape = SubResource("RectangleShape2D_jkv2x")
 
 [node name="Bar2" type="StaticBody2D" parent="MapUnderPlayer"]
@@ -61,9 +64,21 @@ shape = SubResource("RectangleShape2D_jbj1t")
 
 [node name="Pools" type="Node2D" parent="."]
 
-[node name="ItemPool" parent="Pools" instance=ExtResource("5_tbgi4")]
-position = Vector2(-56, -41)
-scale = Vector2(3.209, 1.484)
+[node name="Aquarium" parent="Pools" instance=ExtResource("5_tbgi4")]
+position = Vector2(-56, -56)
+
+[node name="Aquarium" type="Sprite2D" parent="Pools/Aquarium"]
+texture = ExtResource("4_o6xl0")
+
+[node name="Area" type="CollisionShape2D" parent="Pools/Aquarium"]
+position = Vector2(8.125, 17.875)
+shape = SubResource("RectangleShape2D_choun")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pools/Aquarium"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pools/Aquarium/StaticBody2D"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_ya4ey")
 
 [node name="ItemPool2" parent="Pools" instance=ExtResource("5_tbgi4")]
 position = Vector2(-135.00003, -265)
@@ -75,27 +90,12 @@ position = Vector2(279.00006, -242.00003)
 scale = Vector2(4.92, 7.005)
 item_type = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Pools"]
-position = Vector2(-55.93751, -42)
-scale = Vector2(0.06237796, 0.029296873)
-texture = ExtResource("4_o6xl0")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Pools"]
-position = Vector2(-135.00002, -265)
-scale = Vector2(0.09521492, 0.13720705)
-texture = ExtResource("5_tipki")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Pools"]
-position = Vector2(278, -242)
-scale = Vector2(0.09521492, 0.13720705)
-texture = ExtResource("6_tipki")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.39, 3.39)
-limit_left = -224
-limit_top = -120
-limit_right = 220
-limit_bottom = 160
+limit_left = -225
+limit_top = -112
+limit_right = 223
+limit_bottom = 144
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
@@ -112,11 +112,11 @@ speed = 20.0
 [node name="BottomWall" type="StaticBody2D" parent="MapUpperPlayer"]
 
 [node name="Texture" type="Sprite2D" parent="MapUpperPlayer/BottomWall"]
-position = Vector2(32, 120)
+position = Vector2(32, 108)
 texture = ExtResource("3_ya4ey")
 
 [node name="Collision" type="CollisionShape2D" parent="MapUpperPlayer/BottomWall"]
-position = Vector2(32.5, 142)
+position = Vector2(32.5, 130)
 shape = SubResource("RectangleShape2D_trceg")
 
 [node name="Ui" type="CanvasLayer" parent="."]
