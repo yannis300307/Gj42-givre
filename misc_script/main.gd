@@ -4,8 +4,9 @@ extends Node
 
 enum ItemType {
 	FISH,
-	MUSHROOM,
-	ALGAE,
+	MOSS,
+	SUGAR_CUBE,
+	GARBAGE,
 }
 
 enum PlayerInteractionType {
@@ -18,10 +19,12 @@ func get_item_image(type: ItemType) -> Resource:
 	match type:
 		ItemType.FISH:
 			return load("res://assets/textures/inventory/fish.png")
-		ItemType.ALGAE:
-			return load("res://assets/textures/inventory/algae.png")
-		ItemType.MUSHROOM:
+		ItemType.MOSS:
 			return load("res://assets/textures/inventory/mushroom.png")
+		ItemType.SUGAR_CUBE:
+			return load("res://assets/textures/inventory/sugar_cube.png")
+		ItemType.GARBAGE:
+			return load("res://assets/textures/inventory/garbage.png")
 	return null
 
 var inventory: Array[ItemType] = []
@@ -33,6 +36,9 @@ func add_item(item: ItemType) -> bool:
 		print("Plus 1", item)
 		return true
 	return false
+
+func clear_inventory():
+	inventory.clear()
 	
 func can_pickup(item: ItemType) -> bool:
 	return (item not in inventory) or inventory.count(item) < max_item
