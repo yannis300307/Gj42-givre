@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://by68qymb8ockx" path="res://assets/textures/player/normal.png" id="2_uxov2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sugp2"]
-radius = 16.0
+radius = 15.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ykyjo"]
 font_size = 12

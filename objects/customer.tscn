@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://3odrmu7w5o0g"]
+[gd_scene load_steps=7 format=3 uid="uid://3odrmu7w5o0g"]
 
 [ext_resource type="Script" uid="uid://cidoaqj8ahrau" path="res://objects/customer.gd" id="1_bwvtj"]
-[ext_resource type="Texture2D" uid="uid://bsk7bnq1juqif" path="res://assets/textures/customers/Porthos.png" id="1_fu7rw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwvtj"]
 size = Vector2(20, 26)
@@ -13,7 +12,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:rotation")
+tracks/0/path = NodePath("TextureContainer:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +27,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:rotation")
+tracks/0/path = NodePath("TextureContainer:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,7 +43,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:rotation")
+tracks/0/path = NodePath("TextureContainer:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -64,11 +63,11 @@ _data = {
 [node name="Customer" type="Area2D"]
 script = ExtResource("1_bwvtj")
 walking_speed = 0.2
+movements_pos = null
+bar_point_index = null
 
-[node name="Texture" type="Sprite2D" parent="."]
+[node name="TextureContainer" type="Node2D" parent="."]
 position = Vector2(0, -0.201)
-texture = ExtResource("1_fu7rw")
-offset = Vector2(2.2132292, -16.299376)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)

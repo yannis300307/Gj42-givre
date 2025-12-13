@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dcbbu81wmdm4x" path="res://assets/textures/inventory/fish.png" id="3_ty45s"]
 
 [node name="Inventory" type="Node2D"]
+scale = Vector2(2.1699917, 2.1699917)
 script = ExtResource("1_ty45s")
 
 [node name="Texture" type="Sprite2D" parent="."]
