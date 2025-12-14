@@ -62,12 +62,14 @@ func _process(delta: float) -> void:
 		state = CustomerState.LEAVING
 		$Recipy.visible = false
 		Global.customers_served += 1
-		if not is_corect_recipy():
+		if not is_correct_recipy():
 			Global.loose.emit()
+		Global.asked_ingredients.clear()
+		Global.ice_cream_ingredients.clear()
 	
 		Global.clear_inventory()
 
-func is_corect_recipy():
+func is_correct_recipy():
 	print(Global.ice_cream_ingredients)
 	print(Global.asked_ingredients)
 	if len(Global.ice_cream_ingredients) != len(Global.asked_ingredients):

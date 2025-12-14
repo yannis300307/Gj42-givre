@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://cosn46ti6ywjj"]
+
+[ext_resource type="Script" uid="uid://e3auk23eodgi" path="res://misc_script/fadings.gd" id="1_xeevv"]
+
+[sub_resource type="Animation" id="Animation_c6pm6"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("End:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5he1u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("End:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5poiv"]
+_data = {
+&"Fade": SubResource("Animation_c6pm6"),
+&"RESET": SubResource("Animation_5he1u")
+}
+
+[node name="GameOver" type="Node2D"]
+
+[node name="End" type="ColorRect" parent="."]
+offset_left = -52.0
+offset_top = -50.0
+offset_right = 2000.0
+offset_bottom = 1124.0
+color = Color(0, 0, 0, 0)
+
+[node name="Label" type="Label" parent="End"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -599.0
+offset_top = -134.0
+offset_right = 599.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 151
+text = "Wrong order"
+horizontal_alignment = 1
+
+[node name="Fading" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5poiv")
+}
+script = ExtResource("1_xeevv")

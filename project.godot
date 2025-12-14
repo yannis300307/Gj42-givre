@@ -13,6 +13,8 @@ config_version=5
 config/name="GJ42-givre"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/fullsize=false
+boot_splash/image="uid://dmknsp4xfh5tf"
 config/icon="res://icon.svg"
 
 [autoload]
