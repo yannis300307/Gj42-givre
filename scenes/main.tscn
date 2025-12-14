@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=69 format=3 uid="uid://dcb808weh1jp7"]
-=======
-[gd_scene load_steps=84 format=3 uid="uid://dcb808weh1jp7"]
->>>>>>> 3e70d381a2021644c813a24c4816529ba7ae091f
+[gd_scene load_steps=86 format=3 uid="uid://dcb808weh1jp7"]
 
 [ext_resource type="Texture2D" uid="uid://daq6jl4b6ipgm" path="res://assets/textures/map/floor.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bgo4pvbpvl0go" path="res://objects/player.tscn" id="1_o5qli"]
