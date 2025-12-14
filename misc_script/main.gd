@@ -19,6 +19,21 @@ enum PlayerInteractionType {
 	NONE,
 }
 
+var stream_player: AudioStreamPlayer2D
+
+
+func _ready():
+	stream_player = AudioStreamPlayer2D.new()
+	add_child(stream_player)
+	stream_player.set_bus("Sound Design")
+
+
+func play_sound_to_player(stream: AudioStreamWAV):
+	stream_player.global_position = get_node("/root/Main/Player").global_position
+	stream_player.set_stream(stream)
+	stream_player.play()
+
+
 func get_item_image(type: ItemType) -> Resource:
 	match type:
 		ItemType.FISH:
