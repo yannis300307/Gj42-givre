@@ -62,7 +62,8 @@ func _process(delta: float) -> void:
 		state = CustomerState.LEAVING
 		$Recipy.visible = false
 		Global.customers_served += 1
-		print(is_corect_recipy())
+		if not is_corect_recipy():
+			Global.loose.emit()
 	
 		Global.clear_inventory()
 

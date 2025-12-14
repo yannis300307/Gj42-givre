@@ -5,6 +5,7 @@ extends Node
 signal customer_leave
 signal need_camera_focus(pos: Vector2, zoom_level: float)
 signal release_camera
+signal loose
 
 var ice_cream_ingredients = {}
 var asked_ingredients = {}
