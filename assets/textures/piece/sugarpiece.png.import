@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://dlv4shnw6lkmd"
+path="res://.godot/imported/sugarpiece.png-3c3cdba56db4954f476c85c6e9819ea7.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/piece/sugarpiece.png"
+dest_files=["res://.godot/imported/sugarpiece.png-3c3cdba56db4954f476c85c6e9819ea7.ctex"]
 
 [params]
 

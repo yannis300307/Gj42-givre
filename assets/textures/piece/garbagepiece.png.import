@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://b5uotxl0cpjm4"
+path="res://.godot/imported/garbagepiece.png-affb992679034ab59f2523ae205c94d6.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/piece/garbagepiece.png"
+dest_files=["res://.godot/imported/garbagepiece.png-affb992679034ab59f2523ae205c94d6.ctex"]
 
 [params]
 

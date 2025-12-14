@@ -8,81 +8,85 @@
 scale = Vector2(2.1699917, 2.1699917)
 script = ExtResource("1_ty45s")
 
-[node name="Texture" type="Sprite2D" parent="."]
+[node name="Elements" type="Node2D" parent="."]
+position = Vector2(86, 250)
+
+[node name="Texture" type="Sprite2D" parent="Elements"]
 texture_filter = 1
-scale = Vector2(1.9937383, 1.9937388)
+scale = Vector2(1.9937384, 1.9937387)
 texture = ExtResource("2_ty45s")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="Elements"]
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="PlaceHolder" type="Sprite2D" parent="Items"]
+[node name="PlaceHolder" type="Sprite2D" parent="Elements/Items"]
 position = Vector2(-38, 88)
 rotation = -0.54550403
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder2" type="Sprite2D" parent="Items"]
+[node name="PlaceHolder2" type="Sprite2D" parent="Elements/Items"]
 position = Vector2(-3.0000014, 92)
 rotation = 0.26317632
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder3" type="Sprite2D" parent="Items"]
-position = Vector2(31, 94.00001)
+[node name="PlaceHolder3" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(31.797363, 87.09712)
 rotation = -0.11905825
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder4" type="Sprite2D" parent="Items"]
-position = Vector2(37.999996, 58)
+[node name="PlaceHolder4" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(39.631493, 53.917267)
 rotation = 0.51610947
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder5" type="Sprite2D" parent="Items"]
+[node name="PlaceHolder5" type="Sprite2D" parent="Elements/Items"]
 position = Vector2(3, 60)
 rotation = 0.51610947
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder6" type="Sprite2D" parent="Items"]
+[node name="PlaceHolder6" type="Sprite2D" parent="Elements/Items"]
 position = Vector2(-32, 50)
 rotation = -0.5353236
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder7" type="Sprite2D" parent="Items"]
+[node name="PlaceHolder7" type="Sprite2D" parent="Elements/Items"]
 position = Vector2(5.999996, 25.000006)
 rotation = -2.353436
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder8" type="Sprite2D" parent="Items"]
-position = Vector2(38, 15.999998)
+[node name="PlaceHolder8" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(41.935654, 17.511591)
 rotation = -2.353436
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder9" type="Sprite2D" parent="Items"]
-position = Vector2(-24.999998, 10.999999)
+[node name="PlaceHolder9" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(-35.484013, 16.129097)
 rotation = -5.346077
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder10" type="Sprite2D" parent="Items"]
-position = Vector2(6.9999995, -10)
+[node name="PlaceHolder10" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(-3.6866512, -9.216626)
 rotation = -4.5722075
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder11" type="Sprite2D" parent="Items"]
-position = Vector2(-41.000004, -19.000004)
+[node name="PlaceHolder11" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(-33.17986, -17.972424)
 rotation = -4.9131994
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
-[node name="PlaceHolder12" type="Sprite2D" parent="Items"]
-position = Vector2(39.000004, -23.000002)
+[node name="PlaceHolder12" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(29.493208, -19.354916)
 rotation = -6.745022
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")

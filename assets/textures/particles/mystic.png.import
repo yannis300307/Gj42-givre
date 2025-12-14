@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://c41k4jc5p60la"
+path="res://.godot/imported/mystic.png-07d64ecee1bcb983b6f2f24a3aee0a06.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/particles/mystic.png"
+dest_files=["res://.godot/imported/mystic.png-07d64ecee1bcb983b6f2f24a3aee0a06.ctex"]
 
 [params]
 

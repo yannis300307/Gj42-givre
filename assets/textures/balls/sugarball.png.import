@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://btgrylaw4l6bh"
+path="res://.godot/imported/sugarball.png-f0b562832318e104de68c8adcd3c96c9.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/balls/sugarball.png"
+dest_files=["res://.godot/imported/sugarball.png-f0b562832318e104de68c8adcd3c96c9.ctex"]
 
 [params]
 

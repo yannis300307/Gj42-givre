@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://q3kem8uqlh4b"
+path="res://.godot/imported/bluefish.png-9e90b2a6e12ad2f532bba68849ac4a15.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/objects/bluefish.png"
+dest_files=["res://.godot/imported/bluefish.png-9e90b2a6e12ad2f532bba68849ac4a15.ctex"]
 
 [params]
 
