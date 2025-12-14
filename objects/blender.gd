@@ -32,12 +32,14 @@ func _process(_delta: float) -> void:
 		Global.clear_inventory()
 		$Animated.visible = true
 		$Animated.play("Blend")
+		Global.play_sound_to_player(AudioStreamWAV.load_from_file("res://assets/audio/blender.wav"))
 		$TurnedOff.visible = false
 		await get_tree().create_timer(5).timeout
 		$Animated.stop()
 		active = false
 		ice_cream_available = true
 		if Global.ItemType.CORNETO in Global.inventory:
+			Global.play_sound_to_player(AudioStreamWAV.load_from_file("res://assets/audio/i_scream.wav"))
 			Global.player_can_interact = Global.PlayerInteractionType.PICKUP_ICE_CREAM
 		else:
 			Global.player_can_interact = Global.PlayerInteractionType.NEED_CORNETO
