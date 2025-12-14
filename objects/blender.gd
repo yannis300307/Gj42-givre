@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 		active = false
 		ice_cream_available = true
 		if Global.ItemType.CORNETO in Global.inventory:
-			Global.play_sound_to_player(AudioStreamWAV.load_from_file("res://assets/audio/i_scream.wav"))
+			$IScream.play()
 			Global.player_can_interact = Global.PlayerInteractionType.PICKUP_ICE_CREAM
 		else:
 			Global.player_can_interact = Global.PlayerInteractionType.NEED_CORNETO

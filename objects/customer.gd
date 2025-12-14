@@ -53,6 +53,7 @@ func _process(delta: float) -> void:
 			elif state == CustomerState.STOPPING:
 				$Animator.play("instant_stop")
 				await $Animator.is_playing()
+				$Order.play()
 				state = CustomerState.WAITING
 				$Recipy.visible = true
 				await get_tree().create_timer(7).timeout
@@ -62,7 +63,10 @@ func _process(delta: float) -> void:
 		state = CustomerState.LEAVING
 		$Recipy.visible = false
 		Global.customers_served += 1
-		if not is_correct_recipy():
+		if is_correct_recipy():
+			$Happy.play()
+		else:
+			$Angry.play()
 			Global.loose.emit()
 		Global.asked_ingredients.clear()
 		Global.ice_cream_ingredients.clear()
