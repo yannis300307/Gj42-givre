@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5gljso0rd8bj"]
 
 [ext_resource type="Script" uid="uid://blgossjq5tcvo" path="res://misc_script/inventory.gd" id="1_ty45s"]
-[ext_resource type="Texture2D" uid="uid://bwq436vupp184" path="res://assets/textures/inventory/inventory.png" id="2_ty45s"]
-[ext_resource type="Texture2D" uid="uid://dcbbu81wmdm4x" path="res://assets/textures/inventory/fish.png" id="3_ty45s"]
+[ext_resource type="Texture2D" uid="uid://dg6vhf72xc38o" path="res://assets/textures/inventory/inventory.png" id="2_ty45s"]
+[ext_resource type="Texture2D" uid="uid://b0p0w6itrkop1" path="res://assets/textures/inventory/fish.png" id="3_ty45s"]
 
 [node name="Inventory" type="Node2D"]
 scale = Vector2(2.1699917, 2.1699917)
@@ -18,71 +18,71 @@ texture = ExtResource("2_ty45s")
 [node name="PlaceHolder" type="Sprite2D" parent="Items"]
 position = Vector2(-38, 88)
 rotation = -0.54550403
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder2" type="Sprite2D" parent="Items"]
 position = Vector2(-3.0000014, 92)
 rotation = 0.26317632
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder3" type="Sprite2D" parent="Items"]
 position = Vector2(31, 94.00001)
 rotation = -0.11905825
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder4" type="Sprite2D" parent="Items"]
 position = Vector2(37.999996, 58)
 rotation = 0.51610947
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder5" type="Sprite2D" parent="Items"]
 position = Vector2(3, 60)
 rotation = 0.51610947
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder6" type="Sprite2D" parent="Items"]
 position = Vector2(-32, 50)
 rotation = -0.5353236
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder7" type="Sprite2D" parent="Items"]
 position = Vector2(5.999996, 25.000006)
 rotation = -2.353436
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder8" type="Sprite2D" parent="Items"]
 position = Vector2(38, 15.999998)
 rotation = -2.353436
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder9" type="Sprite2D" parent="Items"]
 position = Vector2(-24.999998, 10.999999)
 rotation = -5.346077
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder10" type="Sprite2D" parent="Items"]
 position = Vector2(6.9999995, -10)
 rotation = -4.5722075
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder11" type="Sprite2D" parent="Items"]
 position = Vector2(-41.000004, -19.000004)
 rotation = -4.9131994
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
 
 [node name="PlaceHolder12" type="Sprite2D" parent="Items"]
 position = Vector2(39.000004, -23.000002)
 rotation = -6.745022
-scale = Vector2(0.448, 0.448)
+scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")

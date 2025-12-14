@@ -1,3 +1,4 @@
+class_name Customer
 extends Area2D
 
 @export var walking_speed: float = 0.5
@@ -11,18 +12,25 @@ enum CustomerState {
 	COMMING,
 	WAITING,
 	STOPPING,
-	LEAVING
+	LEAVING,
+	WAITING_AWAY,
 }
 
 func _ready() -> void:
+	for child in get_children():
+		if child.name.begins_with("Under"):
+			child.reparent($Effects)
 	get_node("Texture").reparent($TextureContainer)
+
 	$Animator.play("Druck")
-	state = CustomerState.COMMING
+	state = CustomerState.WAITING_AWAY
 	if len(movements_pos) > 0:
 		position = movements_pos[0]
 
+func go_buy_ice_cream():
+	state = CustomerState.COMMING
+
 func _process(delta: float) -> void:
-	print(position)
 	if len(movements_pos) > 1:
 		var direction = (movements_pos[target_point] - position).normalized()
 		position += direction * walking_speed * delta
@@ -36,7 +44,8 @@ func _process(delta: float) -> void:
 				if target_point >= len(movements_pos):
 					position = movements_pos[0]
 					target_point = 0
-					state = CustomerState.COMMING
+					state = CustomerState.WAITING_AWAY
+					Global.customer_leave.emit()
 			elif state == CustomerState.STOPPING:
 				$Animator.play("instant_stop")
 				await $Animator.is_playing()
@@ -45,4 +54,3 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact") && state == CustomerState.WAITING:
 		state = CustomerState.LEAVING
 		Global.clear_inventory()
-			

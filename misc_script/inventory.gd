@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready() -> void:
+	visible = true
+
 func _process(delta: float) -> void:
 	for i in len(Global.inventory):
 		if i >= $Items.get_child_count():

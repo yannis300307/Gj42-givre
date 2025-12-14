@@ -2,6 +2,10 @@ extends Node
 
 @export var max_item: int = 3
 
+signal customer_leave
+signal need_camera_focus(pos: Vector2, zoom_level: float)
+signal release_camera
+
 enum ItemType {
 	FISH,
 	MOSS,
@@ -20,7 +24,7 @@ func get_item_image(type: ItemType) -> Resource:
 		ItemType.FISH:
 			return load("res://assets/textures/inventory/fish.png")
 		ItemType.MOSS:
-			return load("res://assets/textures/inventory/mushroom.png")
+			return load("res://assets/textures/inventory/moss.png")
 		ItemType.SUGAR_CUBE:
 			return load("res://assets/textures/inventory/sugar_cube.png")
 		ItemType.GARBAGE:
@@ -33,7 +37,6 @@ var player_can_interact: PlayerInteractionType = PlayerInteractionType.NONE
 func add_item(item: ItemType) -> bool:
 	if can_pickup(item):
 		inventory.append(item)
-		print("Plus 1", item)
 		return true
 	return false
 
