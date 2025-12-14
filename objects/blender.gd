@@ -20,10 +20,15 @@ func _on_area_body_exited(body: Node2D) -> void:
 		in_area = false
 
 func _process(_delta: float) -> void:
-	if in_area and not active and len(Global.inventory) > 0 and not ice_cream_available and Input.is_action_just_pressed("Interact"):
+	if in_area and not active and Global.ItemType.ICE_CREAM not in Global.inventory and len(Global.inventory) > 0 and not ice_cream_available and Input.is_action_just_pressed("Interact"):
 		active = true
 		ice_cream_available = false
 		Global.player_can_interact = Global.PlayerInteractionType.NONE
+		for i in Global.inventory:
+			if i in Global.ice_cream_ingredients:
+				Global.ice_cream_ingredients[i] += 1
+			else:
+				Global.ice_cream_ingredients[i] = 1
 		Global.clear_inventory()
 		$Animated.visible = true
 		$Animated.play("Blend")

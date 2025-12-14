@@ -28,7 +28,9 @@ func _ready() -> void:
 		position = movements_pos[0]
 
 func go_buy_ice_cream():
+	$Recipy.visible = false
 	state = CustomerState.COMMING
+	generate_recipy()
 
 func _process(delta: float) -> void:
 	if len(movements_pos) > 1:
@@ -51,8 +53,55 @@ func _process(delta: float) -> void:
 				$Animator.play("instant_stop")
 				await $Animator.is_playing()
 				state = CustomerState.WAITING
-	
-	if Input.is_action_just_pressed("Interact") && state == CustomerState.WAITING:
+				$Recipy.visible = true
+
+	if Input.is_action_just_pressed("Interact") and state == CustomerState.WAITING and Global.player_at_bar and Global.ItemType.ICE_CREAM in Global.inventory:
 		state = CustomerState.LEAVING
-		
-		#Global.clear_inventory()
+		$Recipy.visible = false
+		Global.customers_served += 1
+		print(is_corect_recipy())
+	
+		Global.clear_inventory()
+
+func is_corect_recipy():
+	print(Global.ice_cream_ingredients)
+	print(Global.asked_ingredients)
+	if len(Global.ice_cream_ingredients) != len(Global.asked_ingredients):
+		return false
+	for t in Global.ice_cream_ingredients:
+		if t not in Global.asked_ingredients or Global.ice_cream_ingredients[t] != Global.asked_ingredients[t]:
+			return false
+	return true
+
+func generate_recipy():
+	var max_recipy_types: int
+	if Global.customers_served < 3:
+		max_recipy_types = 1
+	elif Global.customers_served < 5:
+		max_recipy_types = 2
+	elif Global.customers_served < 8:
+		max_recipy_types = 3
+	elif Global.customers_served < 20:
+		max_recipy_types = 4
+	else:
+		max_recipy_types = 5
+	
+	var available = [Global.ItemType.FISH, Global.ItemType.MOSS, Global.ItemType.SUGAR_CUBE, Global.ItemType.GARBAGE, Global.ItemType.STRAWBERRY]
+	var types = []
+	for i in range(randi_range(1, max_recipy_types)):
+		types.append(available.pop_at(randi_range(0, len(available) - 1)))
+	var recipy = {}
+	var index = 0
+	for t in types:
+		var count = randi_range(1, 3)
+		recipy[t] = count
+		var line: Node2D = $Recipy/LineSample.duplicate()
+		line.visible = true
+		line.get_node("Count").text = "x" + str(count)
+		line.get_node("Item").texture = Global.get_item_image(t)
+		line.position.y += index * 10
+		$Recipy.add_child(line)
+		index += 1
+	
+	Global.asked_ingredients = recipy
+	

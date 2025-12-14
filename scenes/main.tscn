@@ -333,13 +333,32 @@ size = Vector2(48, 50.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgi5k"]
 size = Vector2(80, 50.5)
 
+[sub_resource type="GDScript" id="GDScript_fuf3a"]
+resource_name = "playe_detection"
+script/source = "extends Area2D
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body == %Player:
+		Global.player_at_bar = true
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body == %Player:
+		Global.player_at_bar = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pibwh"]
+size = Vector2(22, 58)
+
 [node name="Main" type="Node"]
 script = ExtResource("1_tbgi4")
 
 [node name="MapUnderPlayer" type="Node2D" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="MapUnderPlayer"]
-position = Vector2(-1, 16)
+position = Vector2(-1, 17)
 texture = ExtResource("1_0wfyh")
 
 [node name="TopWall2" type="StaticBody2D" parent="MapUnderPlayer"]
@@ -687,14 +706,14 @@ move_threshold = 600
 [node name="Bar" type="Area2D" parent="CameraZoomAreas"]
 position = Vector2(134.115, 49.63)
 script = ExtResource("28_2f3dj")
-zoom_level = 11.0
+zoom_level = 10.0
 
 [node name="Area" type="CollisionShape2D" parent="CameraZoomAreas/Bar"]
 position = Vector2(-1.1150055, 5.369999)
 shape = SubResource("RectangleShape2D_yq6so")
 
 [node name="Marker" type="Marker2D" parent="CameraZoomAreas/Bar"]
-position = Vector2(18.884995, 5.369999)
+position = Vector2(18.884995, 14.369999)
 
 [node name="Table" type="Area2D" parent="CameraZoomAreas"]
 position = Vector2(72, -25.485)
@@ -732,6 +751,16 @@ shape = SubResource("RectangleShape2D_dgi5k")
 [node name="Marker" type="Marker2D" parent="CameraZoomAreas/Aquarium"]
 position = Vector2(1.6699982, -7.4350014)
 
+[node name="Misc" type="Node2D" parent="."]
+
+[node name="Bar" type="Area2D" parent="Misc"]
+position = Vector2(133, 54)
+script = SubResource("GDScript_fuf3a")
+
+[node name="Area" type="CollisionShape2D" parent="Misc/Bar"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_pibwh")
+
 [connection signal="body_entered" from="MapUpperPlayer/Blender/Area" to="MapUpperPlayer/Blender" method="_on_area_body_entered"]
 [connection signal="body_exited" from="MapUpperPlayer/Blender/Area" to="MapUpperPlayer/Blender" method="_on_area_body_exited"]
 [connection signal="body_entered" from="CameraZoomAreas/Bar" to="CameraZoomAreas/Bar" method="_on_body_entered"]
@@ -742,3 +771,5 @@ position = Vector2(1.6699982, -7.4350014)
 [connection signal="body_exited" from="CameraZoomAreas/Strawberry" to="CameraZoomAreas/Strawberry" method="_on_body_exited"]
 [connection signal="body_entered" from="CameraZoomAreas/Aquarium" to="CameraZoomAreas/Aquarium" method="_on_body_entered"]
 [connection signal="body_exited" from="CameraZoomAreas/Aquarium" to="CameraZoomAreas/Aquarium" method="_on_body_exited"]
+[connection signal="body_entered" from="Misc/Bar" to="Misc/Bar" method="_on_body_entered"]
+[connection signal="body_exited" from="Misc/Bar" to="Misc/Bar" method="_on_body_exited"]
