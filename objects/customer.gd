@@ -26,6 +26,7 @@ func _ready() -> void:
 	state = CustomerState.WAITING_AWAY
 	if len(movements_pos) > 0:
 		position = movements_pos[0]
+	$Recipy.visible = false
 
 func go_buy_ice_cream():
 	$Recipy.visible = false
@@ -54,6 +55,8 @@ func _process(delta: float) -> void:
 				await $Animator.is_playing()
 				state = CustomerState.WAITING
 				$Recipy.visible = true
+				await get_tree().create_timer(7).timeout
+				$Recipy.visible = false
 
 	if Input.is_action_just_pressed("Interact") and state == CustomerState.WAITING and Global.player_at_bar and Global.ItemType.ICE_CREAM in Global.inventory:
 		state = CustomerState.LEAVING
@@ -92,6 +95,8 @@ func generate_recipy():
 		types.append(available.pop_at(randi_range(0, len(available) - 1)))
 	var recipy = {}
 	var index = 0
+	for child in $Recipy/TrueRecipy.get_children():
+		child.queue_free()
 	for t in types:
 		var count = randi_range(1, 3)
 		recipy[t] = count
@@ -100,7 +105,7 @@ func generate_recipy():
 		line.get_node("Count").text = "x" + str(count)
 		line.get_node("Item").texture = Global.get_item_image(t)
 		line.position.y += index * 10
-		$Recipy.add_child(line)
+		$Recipy/TrueRecipy.add_child(line)
 		index += 1
 	
 	Global.asked_ingredients = recipy

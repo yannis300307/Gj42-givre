@@ -101,3 +101,5 @@ text = "x2"
 position = Vector2(-10, -17)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_xqo2o")
+
+[node name="TrueRecipy" type="Node2D" parent="Recipy"]
