@@ -28,5 +28,5 @@ func _process(_delta: float) -> void:
 		if item_type == Global.ItemType.GARBAGE:
 			Global.play_sound_to_player(AudioStreamWAV.load_from_file("res://assets/audio/trash_collecting.wav"))
 		Global.add_item(item_type)
-	if not Global.can_pickup(item_type) && player_in_area:
+	if not Global.can_pickup(item_type) and player_in_area:
 		Global.player_can_interact = Global.PlayerInteractionType.NONE

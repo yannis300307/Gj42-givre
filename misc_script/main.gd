@@ -11,11 +11,17 @@ enum ItemType {
 	MOSS,
 	SUGAR_CUBE,
 	GARBAGE,
+	STRAWBERRY,
+	CORNETO,
+	ICE_CREAM,
 }
 
 enum PlayerInteractionType {
 	PICKUP_ITEM,
 	PLACE_ITEM,
+	USE_BLENDER,
+	PICKUP_ICE_CREAM,
+	NEED_CORNETO,
 	NONE,
 }
 
@@ -44,6 +50,12 @@ func get_item_image(type: ItemType) -> Resource:
 			return load("res://assets/textures/inventory/sugar_cube.png")
 		ItemType.GARBAGE:
 			return load("res://assets/textures/inventory/garbage.png")
+		ItemType.STRAWBERRY:
+			return load("res://assets/textures/inventory/strawberry_item.png")
+		ItemType.CORNETO:
+			return load("res://assets/textures/inventory/amazon.png")
+		ItemType.ICE_CREAM:
+			return load("res://assets/textures/inventory/miam.png")
 	return null
 
 var inventory: Array[ItemType] = []
@@ -59,6 +71,10 @@ func clear_inventory():
 	inventory.clear()
 	
 func can_pickup(item: ItemType) -> bool:
+	if (ItemType.ICE_CREAM in inventory):
+		return false
+	if (item == ItemType.CORNETO):
+		return item not in inventory
 	return (item not in inventory) or inventory.count(item) < max_item
 
 func consume_item(item: ItemType) -> bool:
