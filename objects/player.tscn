@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bgo4pvbpvl0go"]
+[gd_scene load_steps=18 format=3 uid="uid://bgo4pvbpvl0go"]
 
 [ext_resource type="Script" uid="uid://bbs0t563smuk8" path="res://objects/player.gd" id="1_ykyjo"]
 [ext_resource type="Texture2D" uid="uid://bqt0kr8rghwxr" path="res://assets/textures/particles/stink.png" id="2_4vq5b"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ctwa0ywfnoijb" path="res://assets/textures/player/player6.png" id="8_mqnmn"]
 [ext_resource type="Texture2D" uid="uid://dijcsmvb6m00e" path="res://assets/textures/player/player7.png" id="9_5esnd"]
 [ext_resource type="Texture2D" uid="uid://cty3ua8yd5xjx" path="res://assets/textures/player/player8.png" id="10_w1o2u"]
+[ext_resource type="AudioStream" uid="uid://cmv85liopf587" path="res://assets/audio/players_movments.wav" id="11_3nfmf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8sra"]
 radius = 9.0
@@ -176,3 +177,7 @@ grow_vertical = 0
 text = "Need a corneto"
 label_settings = SubResource("LabelSettings_ykyjo")
 horizontal_alignment = 1
+
+[node name="Rolling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_3nfmf")
+bus = &"Sound Design"

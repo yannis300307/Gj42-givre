@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 		Global.clear_inventory()
 		$Animated.visible = true
 		$Animated.play("Blend")
-		Global.play_sound_to_player(AudioStreamWAV.load_from_file("res://assets/audio/blender.wav"))
+		$Sound.play()
 		$TurnedOff.visible = false
 		await get_tree().create_timer(5).timeout
 		$Animated.stop()
