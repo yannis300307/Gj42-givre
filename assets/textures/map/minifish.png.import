@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://cuo71wk5hvths"
+path="res://.godot/imported/minifish.png-c7c7dd07edef3fa50b4ffc04bdb02ddf.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/map/minifish.png"
+dest_files=["res://.godot/imported/minifish.png-c7c7dd07edef3fa50b4ffc04bdb02ddf.ctex"]
 
 [params]
 

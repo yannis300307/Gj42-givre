@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://c2vo3rrmbngsi"
+path="res://.godot/imported/mosspiece.png-3f0b1fb6c9fc328da09a8840f2f85f9f.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/piece/mosspiece.png"
+dest_files=["res://.godot/imported/mosspiece.png-3f0b1fb6c9fc328da09a8840f2f85f9f.ctex"]
 
 [params]
 

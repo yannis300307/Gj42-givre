@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://dk6hbssyvs4ph"
+path="res://.godot/imported/strawberry_item.png-6c66f6f7a2ec2a928466ab87eb52a757.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/inventory/strawberry_item.png"
+dest_files=["res://.godot/imported/strawberry_item.png-6c66f6f7a2ec2a928466ab87eb52a757.ctex"]
 
 [params]
 

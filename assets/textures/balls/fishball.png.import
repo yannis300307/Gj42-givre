@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://da0txujkmy8xj"
+path="res://.godot/imported/fishball.png-6c55b2263cb45ff56d889be0babde974.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/balls/fishball.png"
+dest_files=["res://.godot/imported/fishball.png-6c55b2263cb45ff56d889be0babde974.ctex"]
 
 [params]
 

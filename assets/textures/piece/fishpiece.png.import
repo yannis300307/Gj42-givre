@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-valid=false
+uid="uid://dsq3jfdivta6h"
+path="res://.godot/imported/fishpiece.png-8bb02bad295671197b4e3c3d82a890e2.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
+source_file="res://assets/textures/piece/fishpiece.png"
+dest_files=["res://.godot/imported/fishpiece.png-8bb02bad295671197b4e3c3d82a890e2.ctex"]
 
 [params]
 
