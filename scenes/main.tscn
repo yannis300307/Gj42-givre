@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dcb808weh1jp7"]
+[gd_scene load_steps=63 format=3 uid="uid://dcb808weh1jp7"]
 
 [ext_resource type="Texture2D" uid="uid://daq6jl4b6ipgm" path="res://assets/textures/map/floor.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bgo4pvbpvl0go" path="res://objects/player.tscn" id="1_o5qli"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bjm3q3ac7f2vl" path="res://assets/textures/map/table.png" id="10_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://mg7ggemkevm2" path="res://assets/textures/particles/snow1.png" id="11_2wyq8"]
 [ext_resource type="Texture2D" uid="uid://bsk7bnq1juqif" path="res://assets/textures/customers/Porthos.png" id="11_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://bywe24fhaqxfg" path="res://assets/textures/particles/bubble.png" id="11_vxglm"]
 [ext_resource type="Script" uid="uid://bj1s2xd723vio" path="res://misc_script/customers_manager.gd" id="12_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://b3ebeqadua43e" path="res://assets/textures/customers/athos.png" id="12_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://briubtp0wqtf7" path="res://assets/textures/particles/snow2.png" id="12_vxglm"]
@@ -26,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bschwikutw7c8" path="res://assets/textures/objects/mossy_wall.png" id="18_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://bfti2qgjb8k2a" path="res://assets/textures/objects/bin.png" id="19_0ld40"]
 [ext_resource type="Texture2D" uid="uid://chfrhk4y4a1it" path="res://assets/textures/particles/flying bugs.png" id="20_yc10j"]
+[ext_resource type="Script" uid="uid://iidxcebvtw32" path="res://misc_script/camera_zoom_area.gd" id="28_2f3dj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
 size = Vector2(256, 44)
@@ -57,6 +59,32 @@ distance = -145.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jscy8"]
 normal = Vector2(0, 1)
 distance = -113.0
+
+[sub_resource type="Curve" id="Curve_yq6so"]
+_data = [Vector2(0, 0.011235952), 0.0, 0.0, 0, 0, Vector2(0.07333334, 0.7191012), 0.6420548, 0.6420548, 0, 0, Vector2(0.89333344, 0.61797756), -0.6974037, -0.6974037, 0, 0, Vector2(1, 0), -1.1401192, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_fv21b"]
+curve = SubResource("Curve_yq6so")
+
+[sub_resource type="Curve" id="Curve_tel4y"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.20224726), 0.0, 0.0, 0, 0, Vector2(0.9666667, 0.73033714), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qkpxi"]
+curve = SubResource("Curve_tel4y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5q0nq"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+direction = Vector3(-1, 1, 0)
+spread = 10.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_qkpxi")
+alpha_curve = SubResource("CurveTexture_fv21b")
 
 [sub_resource type="Curve" id="Curve_2f3dj"]
 _data = [Vector2(0, 0.43820232), 0.0, 0.0, 0, 0, Vector2(0.76666665, 0.10112369), -0.9418371, -0.9418371, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -146,6 +174,12 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_og1vs")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq6so"]
+size = Vector2(22.115005, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f3dj"]
+size = Vector2(128, 66)
+
 [node name="Main" type="Node"]
 script = ExtResource("1_tbgi4")
 
@@ -220,7 +254,7 @@ shape = SubResource("WorldBoundaryShape2D_yc10j")
 shape = SubResource("WorldBoundaryShape2D_jscy8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(2, -1)
 zoom = Vector2(6, 6)
 limit_left = -225
 limit_top = -112
@@ -231,6 +265,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 script = ExtResource("2_sugp2")
 player_direction_offset = 50
+focus_zoom_smoothing_speed = 1.5
 
 [node name="Customers" type="Node2D" parent="."]
 position = Vector2(189, 0)
@@ -246,6 +281,15 @@ bar_point_index = 8
 position = Vector2(0, -0.201)
 texture = ExtResource("11_a8y0u")
 offset = Vector2(2.2132292, -16.299376)
+
+[node name="Bubbles" type="GPUParticles2D" parent="Customers/Porthos"]
+z_index = 2
+position = Vector2(0.44499993, -12)
+amount = 2
+texture = ExtResource("11_vxglm")
+lifetime = 3.0
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_5q0nq")
 
 [node name="Athos" parent="Customers" instance=ExtResource("8_eb6dy")]
 position = Vector2(6, -135)
@@ -402,5 +446,31 @@ position = Vector2(171, 284.00003)
 
 [node name="CameraZoomAreas" type="Node2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="CameraZoomAreas"]
-position = Vector2(-1, 0)
+[node name="Bar" type="Area2D" parent="CameraZoomAreas"]
+position = Vector2(134.115, 49.63)
+script = ExtResource("28_2f3dj")
+zoom_level = 12.0
+
+[node name="Area" type="CollisionShape2D" parent="CameraZoomAreas/Bar"]
+position = Vector2(-1.1150055, 5.369999)
+shape = SubResource("RectangleShape2D_yq6so")
+
+[node name="Marker" type="Marker2D" parent="CameraZoomAreas/Bar"]
+position = Vector2(18.88501, -7.630005)
+
+[node name="Table" type="Area2D" parent="CameraZoomAreas"]
+position = Vector2(72, -25.485)
+script = ExtResource("28_2f3dj")
+zoom_level = 8.0
+
+[node name="Area" type="CollisionShape2D" parent="CameraZoomAreas/Table"]
+position = Vector2(0, -10.514999)
+shape = SubResource("RectangleShape2D_2f3dj")
+
+[node name="Marker" type="Marker2D" parent="CameraZoomAreas/Table"]
+position = Vector2(0, -15.514999)
+
+[connection signal="body_entered" from="CameraZoomAreas/Bar" to="CameraZoomAreas/Bar" method="_on_body_entered"]
+[connection signal="body_exited" from="CameraZoomAreas/Bar" to="CameraZoomAreas/Bar" method="_on_body_exited"]
+[connection signal="body_entered" from="CameraZoomAreas/Table" to="CameraZoomAreas/Table" method="_on_body_entered"]
+[connection signal="body_exited" from="CameraZoomAreas/Table" to="CameraZoomAreas/Table" method="_on_body_exited"]

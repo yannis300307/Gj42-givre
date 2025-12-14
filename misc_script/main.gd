@@ -3,6 +3,8 @@ extends Node
 @export var max_item: int = 3
 
 signal customer_leave
+signal need_camera_focus(pos: Vector2, zoom_level: float)
+signal release_camera
 
 enum ItemType {
 	FISH,

@@ -89,7 +89,7 @@ process_material = SubResource("ParticleProcessMaterial_3nfmf")
 [node name="Texture" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s4hvt")
 animation = &"roll"
-frame_progress = 0.4518922
+frame_progress = 0.85640484
 speed_scale = 0.1
 
 [node name="ControlsLabels" type="Node2D" parent="."]

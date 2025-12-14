@@ -16,3 +16,4 @@ func call_customer():
 	var customer: Customer = customers.pop_at(randi_range(0, len(customers) - 1))
 	last_customer = customer
 	customer.go_buy_ice_cream()
+	print(customer)
