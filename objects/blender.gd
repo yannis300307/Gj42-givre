@@ -6,7 +6,7 @@ var ice_cream_available = false
 
 func _on_area_body_entered(body: Node2D) -> void:
 	if body == %Player:
-		if not active and not ice_cream_available:
+		if not active and not ice_cream_available and len(Global.inventory) > 0:
 			Global.player_can_interact = Global.PlayerInteractionType.USE_BLENDER
 		if ice_cream_available and Global.ItemType.CORNETO in Global.inventory:
 			Global.player_can_interact = Global.PlayerInteractionType.PICKUP_ICE_CREAM
@@ -20,10 +20,11 @@ func _on_area_body_exited(body: Node2D) -> void:
 		in_area = false
 
 func _process(_delta: float) -> void:
-	if in_area and not active and Global.ItemType.ICE_CREAM not in Global.inventory and not ice_cream_available and Input.is_action_just_pressed("Interact"):
+	if in_area and not active and len(Global.inventory) > 0 and not ice_cream_available and Input.is_action_just_pressed("Interact"):
 		active = true
 		ice_cream_available = false
 		Global.player_can_interact = Global.PlayerInteractionType.NONE
+		Global.clear_inventory()
 		$Animated.visible = true
 		$Animated.play("Blend")
 		$TurnedOff.visible = false
@@ -37,6 +38,9 @@ func _process(_delta: float) -> void:
 			Global.player_can_interact = Global.PlayerInteractionType.NEED_CORNETO
 	if in_area and ice_cream_available and Input.is_action_just_pressed("Interact") and Global.ItemType.CORNETO in Global.inventory:
 		Global.inventory.append(Global.ItemType.ICE_CREAM)
+		Global.inventory.erase(Global.ItemType.CORNETO)
+		$Animated.visible = false
+		$TurnedOff.visible = true
 		Global.player_can_interact = Global.PlayerInteractionType.NONE
 		active = false
 		ice_cream_available = false
