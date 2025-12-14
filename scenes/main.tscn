@@ -716,6 +716,32 @@ shape = SubResource("RectangleShape2D_dgi5k")
 [node name="Marker" type="Marker2D" parent="CameraZoomAreas/Aquarium"]
 position = Vector2(1.6699982, -7.4350014)
 
+[node name="End" type="Node2D" parent="."]
+position = Vector2(661, -35)
+
+[node name="ColorRect" type="ColorRect" parent="End"]
+offset_left = -267.0
+offset_top = -176.0
+offset_right = 283.0
+offset_bottom = 163.0
+color = Color(0.07683588, 0.07683579, 0.07683582, 1)
+
+[node name="Label" type="Label" parent="End"]
+offset_left = -51.0
+offset_top = -12.0
+offset_right = 61.0
+offset_bottom = 11.0
+text = "This is the end"
+
+[node name="Label2" type="Label" parent="End"]
+offset_left = 245.0
+offset_top = 154.0
+offset_right = 282.0
+offset_bottom = 164.0
+theme_override_colors/font_color = Color(0.09998604, 0.09998598, 0.099985994, 1)
+theme_override_font_sizes/font_size = 6
+text = "By the doors"
+
 [connection signal="body_entered" from="MapUpperPlayer/Blender/Area" to="MapUpperPlayer/Blender" method="_on_area_body_entered"]
 [connection signal="body_exited" from="MapUpperPlayer/Blender/Area" to="MapUpperPlayer/Blender" method="_on_area_body_exited"]
 [connection signal="body_entered" from="CameraZoomAreas/Bar" to="CameraZoomAreas/Bar" method="_on_body_entered"]
