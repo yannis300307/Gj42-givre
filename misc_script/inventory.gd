@@ -8,7 +8,7 @@ func _ready() -> void:
 	visible = true
 	$Transition.play("RESET")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	for i in len(Global.inventory):
 		if i >= $Elements/Items.get_child_count():
 			break
