@@ -56,6 +56,8 @@ func clear_inventory():
 	inventory.clear()
 	
 func can_pickup(item: ItemType) -> bool:
+	if (ItemType.ICE_CREAM in inventory):
+		return false
 	if (item == ItemType.CORNETO):
 		return item not in inventory
 	return (item not in inventory) or inventory.count(item) < max_item

@@ -54,4 +54,5 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Interact") && state == CustomerState.WAITING:
 		state = CustomerState.LEAVING
-		Global.clear_inventory()
+		
+		#Global.clear_inventory()
