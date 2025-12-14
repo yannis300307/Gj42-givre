@@ -12,12 +12,28 @@ func _process(_delta: float) -> void:
 		Global.PlayerInteractionType.PICKUP_ITEM:
 			$ControlsLabels/Pickup.visible = true
 			$ControlsLabels/Place.visible = false
+			$ControlsLabels/Blend.visible = false
+			$ControlsLabels/PickupIceCream.visible = false
 		Global.PlayerInteractionType.PLACE_ITEM:
 			$ControlsLabels/Pickup.visible = false
 			$ControlsLabels/Place.visible = true
+			$ControlsLabels/Blend.visible = false
+			$ControlsLabels/PickupIceCream.visible = false
 		Global.PlayerInteractionType.NONE:
 			$ControlsLabels/Pickup.visible = false
 			$ControlsLabels/Place.visible = false
+			$ControlsLabels/Blend.visible = false
+			$ControlsLabels/PickupIceCream.visible = false
+		Global.PlayerInteractionType.USE_BLENDER:
+			$ControlsLabels/Pickup.visible = false
+			$ControlsLabels/Place.visible = false
+			$ControlsLabels/Blend.visible = true
+			$ControlsLabels/PickupIceCream.visible = false
+		Global.PlayerInteractionType.PICKUP_ICE_CREAM:
+			$ControlsLabels/Pickup.visible = false
+			$ControlsLabels/Place.visible = false
+			$ControlsLabels/Blend.visible = false
+			$ControlsLabels/PickupIceCream.visible = true
 
 func _physics_process(delta: float) -> void:
 	var acc_state: int = 0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-path="res://.godot/imported/garbage.png-10ffb363c7c7f2f1ff2941f7834fdc59.ctex"
+uid="uid://btj77jyte4din"
+path="res://.godot/imported/glacondeblunder.png-3458f39b129a6dd2a8d7491f3b71ed41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
-dest_files=["res://.godot/imported/garbage.png-10ffb363c7c7f2f1ff2941f7834fdc59.ctex"]
+source_file="res://assets/textures/objects/glacondeblunder.png"
+dest_files=["res://.godot/imported/glacondeblunder.png-3458f39b129a6dd2a8d7491f3b71ed41.ctex"]
 
 [params]
 

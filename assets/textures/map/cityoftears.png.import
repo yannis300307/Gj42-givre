@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qta3sttthno4"
-path="res://.godot/imported/garbage.png-10ffb363c7c7f2f1ff2941f7834fdc59.ctex"
+uid="uid://r7liygkjkwf8"
+path="res://.godot/imported/cityoftears.png-b006c0023b9449283d40774ab3c7b545.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/inventory/garbage.png"
-dest_files=["res://.godot/imported/garbage.png-10ffb363c7c7f2f1ff2941f7834fdc59.ctex"]
+source_file="res://assets/textures/map/cityoftears.png"
+dest_files=["res://.godot/imported/cityoftears.png-b006c0023b9449283d40774ab3c7b545.ctex"]
 
 [params]
 

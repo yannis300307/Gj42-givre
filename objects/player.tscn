@@ -73,7 +73,7 @@ animations = [{
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ykyjo"]
-font_size = 12
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D"]
@@ -94,7 +94,8 @@ speed_scale = 0.1
 
 [node name="ControlsLabels" type="Node2D" parent="."]
 z_index = 1
-position = Vector2(0, -53.95)
+position = Vector2(0, -22.49)
+scale = Vector2(0.22, 0.22)
 
 [node name="Pickup" type="Label" parent="ControlsLabels"]
 anchors_preset = 7
@@ -125,5 +126,37 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Press E to place"
+label_settings = SubResource("LabelSettings_ykyjo")
+horizontal_alignment = 1
+
+[node name="Blend" type="Label" parent="ControlsLabels"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press E to blend"
+label_settings = SubResource("LabelSettings_ykyjo")
+horizontal_alignment = 1
+
+[node name="PickupIceCream" type="Label" parent="ControlsLabels"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press E to pickup ice cream"
 label_settings = SubResource("LabelSettings_ykyjo")
 horizontal_alignment = 1
