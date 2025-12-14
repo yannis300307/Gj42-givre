@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://daq6jl4b6ipgm" path="res://assets/textures/map/floor.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bgo4pvbpvl0go" path="res://objects/player.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://b8nrxqwctugxs" path="res://misc_script/main.gd" id="1_tbgi4"]
+[ext_resource type="Script" path="res://misc_script/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://d0so6wnbntblo" path="res://misc_script/camera.gd" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://cgv1d54c24gyy" path="res://assets/textures/map/bottom_wall.png" id="3_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://ic44qse0emr6" path="res://assets/textures/map/top_wall.png" id="4_eb6dy"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://mg7ggemkevm2" path="res://assets/textures/particles/snow1.png" id="11_2wyq8"]
 [ext_resource type="Texture2D" uid="uid://bsk7bnq1juqif" path="res://assets/textures/customers/Porthos.png" id="11_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://bywe24fhaqxfg" path="res://assets/textures/particles/bubble.png" id="11_vxglm"]
-[ext_resource type="Script" uid="uid://bj1s2xd723vio" path="res://misc_script/customers_manager.gd" id="12_gqmmt"]
+[ext_resource type="Script" path="res://misc_script/customers_manager.gd" id="12_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://b3ebeqadua43e" path="res://assets/textures/customers/athos.png" id="12_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://briubtp0wqtf7" path="res://assets/textures/particles/snow2.png" id="12_vxglm"]
 [ext_resource type="Texture2D" uid="uid://05luqpiu4pi3" path="res://assets/textures/particles/smoke1.png" id="13_jscy8"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bfti2qgjb8k2a" path="res://assets/textures/objects/bin.png" id="19_0ld40"]
 [ext_resource type="Texture2D" uid="uid://chfrhk4y4a1it" path="res://assets/textures/particles/flying bugs.png" id="20_yc10j"]
 [ext_resource type="Texture2D" uid="uid://dgovwjf7b8beo" path="res://assets/textures/objects/strawberry.png" id="27_fv21b"]
-[ext_resource type="Script" uid="uid://iidxcebvtw32" path="res://misc_script/camera_zoom_area.gd" id="28_2f3dj"]
+[ext_resource type="Script" path="res://misc_script/camera_zoom_area.gd" id="28_2f3dj"]
 [ext_resource type="Texture2D" uid="uid://c41k4jc5p60la" path="res://assets/textures/particles/mystic.png" id="28_tel4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]

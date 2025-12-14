@@ -5,6 +5,14 @@ var acceleration: float = 0
 
 var old_direction = Vector2.ZERO
 var direction = Vector2i.ZERO
+var player_move_sound_stream: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+
+
+func _ready() -> void:
+	var movement_sound: AudioStreamWAV = AudioStreamWAV.load_from_file("res://assets/audio/players_movments.wav")
+	player_move_sound_stream.set_bus("Sound Design")
+	player_move_sound_stream.set_stream(movement_sound)
+	add_child(player_move_sound_stream)
 
 # Called when the node enters the scene tree for the first time.
 func _process(_delta: float) -> void:
@@ -25,22 +33,18 @@ func _physics_process(delta: float) -> void:
 		acceleration = min(acceleration + (0.4 * delta), 1)
 		direction.x = 1;
 		$Texture.rotation_degrees = 0
-		#rotation_degrees = 90
 	elif Input.is_action_pressed("ui_left"):
 		acceleration = min(acceleration + (0.4 * delta), 1)
 		direction.x = -1
-		#rotation_degrees = -90
 	else:
 		acc_state = 1
 		direction.x = 0
 	if Input.is_action_pressed("ui_down"):
 		acceleration = min(acceleration + (0.4 * delta), 1)
 		direction.y = 1
-		#rotation_degrees = 180
 	elif Input.is_action_pressed("ui_up"):
 		acceleration = min(acceleration + (0.4 * delta), 1)
 		direction.y = -1
-		#rotation_degrees = 0
 	else:
 		if acc_state > 0:
 			acceleration -= (0x5f3759df / 10e8) * delta
@@ -84,9 +88,12 @@ func _physics_process(delta: float) -> void:
 	var motion: Vector2 = tmp * (direction as Vector2).limit_length(tmp)
 	move_and_collide(motion * speed)
 	if direction.length() > 0.2:
+		if !player_move_sound_stream.is_playing():
+			player_move_sound_stream.play()
 		$Texture.play("roll")
 	else:
 		var frame = $Texture.frame
+		player_move_sound_stream.stop()
 		$Texture.stop()
 		$Texture.frame = frame
 	
