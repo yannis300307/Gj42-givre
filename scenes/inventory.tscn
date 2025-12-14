@@ -1,12 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5gljso0rd8bj"]
+[gd_scene load_steps=7 format=3 uid="uid://c5gljso0rd8bj"]
 
 [ext_resource type="Script" uid="uid://blgossjq5tcvo" path="res://misc_script/inventory.gd" id="1_ty45s"]
 [ext_resource type="Texture2D" uid="uid://dg6vhf72xc38o" path="res://assets/textures/inventory/inventory.png" id="2_ty45s"]
 [ext_resource type="Texture2D" uid="uid://b0p0w6itrkop1" path="res://assets/textures/inventory/fish.png" id="3_ty45s"]
 
+[sub_resource type="Animation" id="Animation_53g1v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elements:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(86, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Elements:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ty45s"]
+resource_name = "move_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elements:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5083333, 0.525, 1),
+"transitions": PackedFloat32Array(2, 1, 2, 1),
+"update": 0,
+"values": [Vector2(86, 250), Vector2(-98, 250), Vector2(975, 250), Vector2(793, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Elements:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.49166667, 0.5, 0.53333336, 0.5416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yyk2a"]
+_data = {
+&"RESET": SubResource("Animation_53g1v"),
+&"move_right": SubResource("Animation_ty45s")
+}
+
 [node name="Inventory" type="Node2D"]
 scale = Vector2(2.1699917, 2.1699917)
 script = ExtResource("1_ty45s")
+move_threshold = 520
 
 [node name="Elements" type="Node2D" parent="."]
 position = Vector2(86, 250)
@@ -90,3 +151,56 @@ position = Vector2(29.493208, -19.354916)
 rotation = -6.745022
 scale = Vector2(0.613, 0.613)
 texture = ExtResource("3_ty45s")
+
+[node name="PlaceHolder13" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(33.355293, -59.215862)
+rotation = -5.5140476
+scale = Vector2(0.613, 0.613)
+texture = ExtResource("3_ty45s")
+
+[node name="PlaceHolder14" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(-0.7462187, -48.155914)
+rotation = -6.716304
+scale = Vector2(0.613, 0.613)
+texture = ExtResource("3_ty45s")
+
+[node name="PlaceHolder15" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(-34.3869, -54.60755)
+rotation = -8.113584
+scale = Vector2(0.613, 0.613)
+texture = ExtResource("3_ty45s")
+
+[node name="PlaceHolder16" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(-4.432869, -84.10075)
+rotation = -6.8788533
+scale = Vector2(0.613, 0.613)
+texture = ExtResource("3_ty45s")
+
+[node name="PlaceHolder17" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(28.746983, -93.31738)
+rotation = -8.398434
+scale = Vector2(0.613, 0.613)
+texture = ExtResource("3_ty45s")
+
+[node name="PlaceHolder18" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(-40.37771, -85.94408)
+rotation = 1.4650768
+scale = Vector2(0.613, 0.613)
+texture = ExtResource("3_ty45s")
+
+[node name="PlaceHolder19" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(-19.17947, -116.35895)
+rotation = -7.2099986
+scale = Vector2(0.613, 0.613)
+texture = ExtResource("3_ty45s")
+
+[node name="PlaceHolder20" type="Sprite2D" parent="Elements/Items"]
+position = Vector2(14.00038, -122.34974)
+rotation = -9.404458
+scale = Vector2(0.613, 0.613)
+texture = ExtResource("3_ty45s")
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yyk2a")
+}
