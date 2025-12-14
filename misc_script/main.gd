@@ -6,6 +6,13 @@ signal customer_leave
 signal need_camera_focus(pos: Vector2, zoom_level: float)
 signal release_camera
 
+var ice_cream_ingredients = {}
+var asked_ingredients = {}
+
+var customers_served: int = 0
+
+var player_at_bar = false
+
 enum ItemType {
 	FISH,
 	MOSS,
