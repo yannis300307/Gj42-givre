@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dcb808weh1jp7"]
+[gd_scene load_steps=84 format=3 uid="uid://dcb808weh1jp7"]
 
 [ext_resource type="Texture2D" uid="uid://daq6jl4b6ipgm" path="res://assets/textures/map/floor.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bgo4pvbpvl0go" path="res://objects/player.tscn" id="1_o5qli"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dr41oo2oursqe" path="res://assets/textures/objects/fish.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://mtw4tsrh518n" path="res://assets/textures/map/bar.png" id="5_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dfth80igv5ms4" path="res://objects/item_pool.tscn" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://cuo71wk5hvths" path="res://assets/textures/map/minifish.png" id="6_qkpxi"]
+[ext_resource type="Texture2D" uid="uid://q3kem8uqlh4b" path="res://assets/textures/map/bluefish.png" id="7_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://3odrmu7w5o0g" path="res://objects/customer.tscn" id="8_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://c8xgwdrcdfwx3" path="res://assets/textures/objects/sugar.png" id="8_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5gljso0rd8bj" path="res://scenes/inventory.tscn" id="9_85g3d"]
@@ -27,9 +29,14 @@
 [ext_resource type="Texture2D" uid="uid://bschwikutw7c8" path="res://assets/textures/objects/mossy_wall.png" id="18_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://bfti2qgjb8k2a" path="res://assets/textures/objects/bin.png" id="19_0ld40"]
 [ext_resource type="Texture2D" uid="uid://chfrhk4y4a1it" path="res://assets/textures/particles/flying bugs.png" id="20_yc10j"]
+[ext_resource type="Script" uid="uid://b41skru5r43wc" path="res://objects/blender.gd" id="24_5q0nq"]
+[ext_resource type="Texture2D" uid="uid://ii6hjm1bwl0v" path="res://assets/textures/map/mixoraction1.png" id="25_j8jky"]
+[ext_resource type="Texture2D" uid="uid://btj77jyte4din" path="res://assets/textures/objects/glacondeblunder.png" id="25_kmb1v"]
+[ext_resource type="Texture2D" uid="uid://bt6pjp33y2buf" path="res://assets/textures/map/mixoraction2.png" id="26_kmb1v"]
 [ext_resource type="Texture2D" uid="uid://dgovwjf7b8beo" path="res://assets/textures/objects/strawberry.png" id="27_fv21b"]
 [ext_resource type="Script" uid="uid://iidxcebvtw32" path="res://misc_script/camera_zoom_area.gd" id="28_2f3dj"]
 [ext_resource type="Texture2D" uid="uid://c41k4jc5p60la" path="res://assets/textures/particles/mystic.png" id="28_tel4y"]
+[ext_resource type="Texture2D" uid="uid://dkevlydr172nu" path="res://assets/textures/objects/amazonpool.png" id="35_fuf3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
 size = Vector2(256, 44)
@@ -42,6 +49,100 @@ size = Vector2(79.75, 53.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
 size = Vector2(64, 32)
+
+[sub_resource type="GDScript" id="GDScript_qkpxi"]
+resource_name = "Animator"
+script/source = "extends Node2D
+
+func _ready() -> void:
+	$Animator.play(\"fishes\")
+"
+
+[sub_resource type="Animation" id="Animation_j8jky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("JeanCharles:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Timmy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, 6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Timmy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_dgi5k"]
+resource_name = "fishes"
+length = 40.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("JeanCharles:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.9666667, 12.266666, 17.1, 23.466667, 27.9, 31.533333, 34.933334, 38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(14, 5), Vector2(3.085, -0.335), Vector2(4.31, 10.219), Vector2(15.072, 9.553), Vector2(22.203, 16.489), Vector2(28.011, 14.574), Vector2(28, 6.064), Vector2(21.105, 5.53998), Vector2(12.000002, 11)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Timmy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.88517183, 1.9342644, 2.7538679, 3.8029604, 4.7209163, 5.573304, 6.458476, 7.146943, 7.868194, 8.7533655, 9.802459, 12.26127, 17.113321, 20.2606, 20.949066, 21.965376, 22.71941, 23.539015, 24.06356, 24.752028, 25.440495, 26.161745, 26.915781, 27.571463, 28.571518, 29.200836, 29.86717, 30.385431, 31.051765, 31.810648, 32.56953, 32.82866, 33.58754, 34.235367, 34.97574, 35.56804, 36.456486, 36.993256, 37.585552, 38.381454, 39.121826, 39.62158),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-15, 6), Vector2(25, -1), Vector2(23.927166, -0.81225395), Vector2(-1, 19), Vector2(-21.999998, 1), Vector2(-5, 20), Vector2(-17.999998, 3.999998), Vector2(13.000004, 2.9999995), Vector2(12.425282, 3.061577), Vector2(-2.999998, 17), Vector2(-25.000002, 6.000002), Vector2(-2.000002, 6.000002), Vector2(-1.999999, 10.000002), Vector2(9, 9.999999), Vector2(-27, -3), Vector2(27, 1), Vector2(5, 20), Vector2(25, -2.000002), Vector2(-26, 20), Vector2(-7.999998, 3.999998), Vector2(-8.302403, 4.0863996), Vector2(20.000004, -4.7683716e-07), Vector2(-12, 19.999998), Vector2(-23, -1), Vector2(17.999998, -1.0000014), Vector2(-18.000002, 14.000002), Vector2(9.000004, 18), Vector2(-14, -1), Vector2(25, -2.0000014), Vector2(-14, 19), Vector2(24, 18), Vector2(-5, 17), Vector2(-4.999998, -1.9999981), Vector2(-24, 15.999999), Vector2(14.999996, 15.999998), Vector2(21.999998, 10), Vector2(-4, 18.999998), Vector2(27.000002, -1.0000019), Vector2(-27, -9.536743e-07), Vector2(8.999996, 18), Vector2(20, 15.999998), Vector2(9, -1.000001), Vector2(-9, 13)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Timmy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(26.933332, 26.971462, 27.571463, 28.063225, 28.066668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, -6.2831855, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kmb1v"]
+_data = {
+&"RESET": SubResource("Animation_j8jky"),
+&"fishes": SubResource("Animation_dgi5k")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yc10j"]
 size = Vector2(69, 58)
@@ -61,6 +162,20 @@ distance = -145.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jscy8"]
 normal = Vector2(0, 1)
 distance = -113.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkpxi"]
+size = Vector2(33, 32)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgi5k"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(12, 5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
 
 [sub_resource type="Curve" id="Curve_yq6so"]
 _data = [Vector2(0, 0.011235952), 0.0, 0.0, 0, 0, Vector2(0.07333334, 0.7191012), 0.6420548, 0.6420548, 0, 0, Vector2(0.89333344, 0.61797756), -0.6974037, -0.6974037, 0, 0, Vector2(1, 0), -1.1401192, 0.0, 0, 0]
@@ -127,14 +242,42 @@ alpha_curve = SubResource("CurveTexture_2wyq8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm3ni"]
 size = Vector2(4, 6)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_fuf3a"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("25_j8jky")
+}, {
+"duration": 0.2,
+"texture": ExtResource("26_kmb1v")
+}],
+"loop": true,
+"name": &"Blend",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8jky"]
+size = Vector2(31, 34)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jscy8"]
-size = Vector2(66, 54)
+size = Vector2(55, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqmmt"]
 size = Vector2(47, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
 size = Vector2(57.5, 57.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmb1v"]
+size = Vector2(56.5, 52.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuf3a"]
+size = Vector2(56, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
 size = Vector2(16, 196)
@@ -176,25 +319,17 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_og1vs")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkpxi"]
-size = Vector2(33, 32)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgi5k"]
-lifetime_randomness = 0.1
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(12, 5, 1)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, 1, 0)
-initial_velocity_min = 2.0
-initial_velocity_max = 4.0
-gravity = Vector3(0, 0, 0)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yq6so"]
 size = Vector2(22.115005, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f3dj"]
 size = Vector2(128, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q0nq"]
+size = Vector2(48, 50.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgi5k"]
+size = Vector2(80, 50.5)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_tbgi4")
@@ -235,6 +370,22 @@ shape = SubResource("RectangleShape2D_choun")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ya4ey")
 
+[node name="Fishes" type="Node2D" parent="MapUnderPlayer/Aquarium"]
+script = SubResource("GDScript_qkpxi")
+
+[node name="JeanCharles" type="Sprite2D" parent="MapUnderPlayer/Aquarium/Fishes"]
+position = Vector2(14, 5)
+texture = ExtResource("6_qkpxi")
+
+[node name="Timmy" type="Sprite2D" parent="MapUnderPlayer/Aquarium/Fishes"]
+position = Vector2(-15, 6)
+texture = ExtResource("7_5q0nq")
+
+[node name="Animator" type="AnimationPlayer" parent="MapUnderPlayer/Aquarium/Fishes"]
+libraries = {
+&"": SubResource("AnimationLibrary_kmb1v")
+}
+
 [node name="MossyWall" parent="MapUnderPlayer" instance=ExtResource("5_tbgi4")]
 position = Vector2(-128, -60)
 item_type = 1
@@ -268,6 +419,24 @@ shape = SubResource("WorldBoundaryShape2D_yc10j")
 
 [node name="Up" type="CollisionShape2D" parent="MapUnderPlayer/MapBorders"]
 shape = SubResource("WorldBoundaryShape2D_jscy8")
+
+[node name="Strawberry" parent="MapUnderPlayer" instance=ExtResource("5_tbgi4")]
+position = Vector2(-201, -94)
+item_type = 4
+
+[node name="Texture" type="Sprite2D" parent="MapUnderPlayer/Strawberry"]
+texture = ExtResource("27_fv21b")
+
+[node name="Area" type="CollisionShape2D" parent="MapUnderPlayer/Strawberry"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_qkpxi")
+
+[node name="Mystic" type="GPUParticles2D" parent="MapUnderPlayer/Strawberry"]
+position = Vector2(0, -5)
+amount = 4
+texture = ExtResource("28_tel4y")
+lifetime = 4.0
+process_material = SubResource("ParticleProcessMaterial_dgi5k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -360,7 +529,7 @@ process_material = SubResource("ParticleProcessMaterial_pm3ni")
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
-position = Vector2(71, 32)
+position = Vector2(32, 42)
 speed = 20.0
 
 [node name="MapUpperPlayer" type="Node2D" parent="."]
@@ -379,9 +548,28 @@ shape = SubResource("RectangleShape2D_pm3ni")
 position = Vector2(-58, 33)
 shape = SubResource("RectangleShape2D_pm3ni")
 
-[node name="Mixor" type="Sprite2D" parent="MapUpperPlayer"]
-position = Vector2(32, -46)
+[node name="Blender" type="Node2D" parent="MapUpperPlayer"]
+script = ExtResource("24_5q0nq")
+
+[node name="Ice" type="Sprite2D" parent="MapUpperPlayer/Blender"]
+position = Vector2(33, -40)
+texture = ExtResource("25_kmb1v")
+
+[node name="Animated" type="AnimatedSprite2D" parent="MapUpperPlayer/Blender"]
+position = Vector2(32, -61)
+sprite_frames = SubResource("SpriteFrames_fuf3a")
+animation = &"Blend"
+frame_progress = 0.7023811
+
+[node name="TurnedOff" type="Sprite2D" parent="MapUpperPlayer/Blender"]
+position = Vector2(33, -61)
 texture = ExtResource("14_muem4")
+
+[node name="Area" type="Area2D" parent="MapUpperPlayer/Blender"]
+
+[node name="Area" type="CollisionShape2D" parent="MapUpperPlayer/Blender/Area"]
+position = Vector2(31.5, -25)
+shape = SubResource("RectangleShape2D_j8jky")
 
 [node name="Bin" parent="MapUpperPlayer" instance=ExtResource("5_tbgi4")]
 position = Vector2(-189, 108)
@@ -391,7 +579,7 @@ item_type = 3
 texture = ExtResource("19_0ld40")
 
 [node name="Area" type="CollisionShape2D" parent="MapUpperPlayer/Bin"]
-position = Vector2(4, 8)
+position = Vector2(-1.5, 8)
 shape = SubResource("RectangleShape2D_jscy8")
 
 [node name="StaticBody" type="StaticBody2D" parent="MapUpperPlayer/Bin"]
@@ -410,6 +598,24 @@ texture = ExtResource("8_trceg")
 [node name="Collision" type="CollisionShape2D" parent="MapUpperPlayer/SugarCube"]
 position = Vector2(-1, 37)
 shape = SubResource("RectangleShape2D_muem4")
+
+[node name="Corneto" parent="MapUpperPlayer" instance=ExtResource("5_tbgi4")]
+position = Vector2(-126, 122)
+item_type = 5
+
+[node name="Texture" type="Sprite2D" parent="MapUpperPlayer/Corneto"]
+position = Vector2(2, -10)
+texture = ExtResource("35_fuf3a")
+
+[node name="Area" type="CollisionShape2D" parent="MapUpperPlayer/Corneto"]
+position = Vector2(-0.75, -6.75)
+shape = SubResource("RectangleShape2D_kmb1v")
+
+[node name="StaticBody" type="StaticBody2D" parent="MapUpperPlayer/Corneto"]
+
+[node name="Collision" type="CollisionShape2D" parent="MapUpperPlayer/Corneto/StaticBody"]
+position = Vector2(2, 5.5)
+shape = SubResource("RectangleShape2D_fuf3a")
 
 [node name="Bar2" type="StaticBody2D" parent="MapUpperPlayer"]
 position = Vector2(152, 16)
@@ -455,26 +661,10 @@ texture = ExtResource("15_y6deb")
 lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_y6deb")
 
-[node name="ItemPool" parent="MapUpperPlayer" instance=ExtResource("5_tbgi4")]
-position = Vector2(-201, -94)
-
-[node name="Texture" type="Sprite2D" parent="MapUpperPlayer/ItemPool"]
-texture = ExtResource("27_fv21b")
-
-[node name="Area" type="CollisionShape2D" parent="MapUpperPlayer/ItemPool"]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_qkpxi")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="MapUpperPlayer/ItemPool"]
-position = Vector2(0, -5)
-amount = 4
-texture = ExtResource("28_tel4y")
-lifetime = 4.0
-process_material = SubResource("ParticleProcessMaterial_dgi5k")
-
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="Ui" instance=ExtResource("9_85g3d")]
+move_threshold = 600
 
 [node name="CameraZoomAreas" type="Node2D" parent="."]
 
@@ -502,7 +692,37 @@ shape = SubResource("RectangleShape2D_2f3dj")
 [node name="Marker" type="Marker2D" parent="CameraZoomAreas/Table"]
 position = Vector2(0, -15.514999)
 
+[node name="Strawberry" type="Area2D" parent="CameraZoomAreas"]
+position = Vector2(-201, -89)
+script = ExtResource("28_2f3dj")
+zoom_level = 20.0
+
+[node name="Area" type="CollisionShape2D" parent="CameraZoomAreas/Strawberry"]
+position = Vector2(0, 1.75)
+shape = SubResource("RectangleShape2D_5q0nq")
+
+[node name="Marker" type="Marker2D" parent="CameraZoomAreas/Strawberry"]
+position = Vector2(-16, -24.515)
+
+[node name="Aquarium" type="Area2D" parent="CameraZoomAreas"]
+position = Vector2(-57.67, -36.565)
+script = ExtResource("28_2f3dj")
+zoom_level = 8.0
+
+[node name="Area" type="CollisionShape2D" parent="CameraZoomAreas/Aquarium"]
+position = Vector2(9.669998, 1.75)
+shape = SubResource("RectangleShape2D_dgi5k")
+
+[node name="Marker" type="Marker2D" parent="CameraZoomAreas/Aquarium"]
+position = Vector2(1.6699982, -7.4350014)
+
+[connection signal="body_entered" from="MapUpperPlayer/Blender/Area" to="MapUpperPlayer/Blender" method="_on_area_body_entered"]
+[connection signal="body_exited" from="MapUpperPlayer/Blender/Area" to="MapUpperPlayer/Blender" method="_on_area_body_exited"]
 [connection signal="body_entered" from="CameraZoomAreas/Bar" to="CameraZoomAreas/Bar" method="_on_body_entered"]
 [connection signal="body_exited" from="CameraZoomAreas/Bar" to="CameraZoomAreas/Bar" method="_on_body_exited"]
 [connection signal="body_entered" from="CameraZoomAreas/Table" to="CameraZoomAreas/Table" method="_on_body_entered"]
 [connection signal="body_exited" from="CameraZoomAreas/Table" to="CameraZoomAreas/Table" method="_on_body_exited"]
+[connection signal="body_entered" from="CameraZoomAreas/Strawberry" to="CameraZoomAreas/Strawberry" method="_on_body_entered"]
+[connection signal="body_exited" from="CameraZoomAreas/Strawberry" to="CameraZoomAreas/Strawberry" method="_on_body_exited"]
+[connection signal="body_entered" from="CameraZoomAreas/Aquarium" to="CameraZoomAreas/Aquarium" method="_on_body_entered"]
+[connection signal="body_exited" from="CameraZoomAreas/Aquarium" to="CameraZoomAreas/Aquarium" method="_on_body_exited"]

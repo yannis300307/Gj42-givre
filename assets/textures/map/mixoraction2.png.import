@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q3kem8uqlh4b"
-path="res://.godot/imported/bluefish.png-9e90b2a6e12ad2f532bba68849ac4a15.ctex"
+uid="uid://bt6pjp33y2buf"
+path="res://.godot/imported/mixoraction2.png-18c2e83d0355f2d14c86f14b838bc492.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/bluefish.png"
-dest_files=["res://.godot/imported/bluefish.png-9e90b2a6e12ad2f532bba68849ac4a15.ctex"]
+source_file="res://assets/textures/map/mixoraction2.png"
+dest_files=["res://.godot/imported/mixoraction2.png-18c2e83d0355f2d14c86f14b838bc492.ctex"]
 
 [params]
 

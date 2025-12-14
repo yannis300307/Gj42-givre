@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1v42b2se3f1m"
-path="res://.godot/imported/amazon.png-34b8eacbeb0623211874b3bd41e0f6f0.ctex"
+uid="uid://dkevlydr172nu"
+path="res://.godot/imported/amazonpool.png-ac36f76a5c6145ae3f1cbc74c89b465f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/balls/amazon.png"
-dest_files=["res://.godot/imported/amazon.png-34b8eacbeb0623211874b3bd41e0f6f0.ctex"]
+source_file="res://assets/textures/objects/amazonpool.png"
+dest_files=["res://.godot/imported/amazonpool.png-ac36f76a5c6145ae3f1cbc74c89b465f.ctex"]
 
 [params]
 
