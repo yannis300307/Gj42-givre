@@ -33,7 +33,8 @@ func go_buy_ice_cream():
 func _process(delta: float) -> void:
 	if len(movements_pos) > 1:
 		var direction = (movements_pos[target_point] - position).normalized()
-		position += direction * walking_speed * delta
+		if state == CustomerState.COMMING or state == CustomerState.LEAVING:
+			position += direction * walking_speed * delta
 		if state == CustomerState.COMMING or state  == CustomerState.LEAVING:
 			$Animator.play("Druck")
 		if position.distance_to(movements_pos[target_point]) < 2:
