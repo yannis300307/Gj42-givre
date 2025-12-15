@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2ouy0hx7rpnr"]
+[gd_scene load_steps=25 format=3 uid="uid://d2ouy0hx7rpnr"]
 
 [ext_resource type="Texture2D" uid="uid://b8aaknx7qn5kl" path="res://assets/textures/player/player3.png" id="1_ehe15"]
+[ext_resource type="Texture2D" uid="uid://chcds0084xkjx" path="res://assets/textures/particles/star.png" id="1_ynj80"]
 [ext_resource type="Texture2D" uid="uid://r7liygkjkwf8" path="res://assets/textures/map/cityoftears.png" id="2_ynj80"]
 [ext_resource type="Texture2D" uid="uid://bjso805bu6yl1" path="res://assets/textures/map/explosion.png" id="3_my8gd"]
 
@@ -122,9 +123,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_a4btt"]
-resource_name = "Explosion"
-
 [sub_resource type="Animation" id="Animation_ehe15"]
 resource_name = "End"
 length = 20.0
@@ -147,10 +145,10 @@ tracks/1/path = NodePath("Stars2:process_material:initial_velocity")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.99, 5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(3.99, 5, 13.732214),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(5, 10), Vector2(30, 40)]
+"values": [Vector2(5, 10), Vector2(30, 40), Vector2(5, 5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -202,6 +200,21 @@ tracks/5/keys = {
 "method": &"play"
 }]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WhiteFade:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 14.268015, 17.918015),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a4btt"]
+resource_name = "Explosion"
 
 [sub_resource type="Animation" id="Animation_ynj80"]
 length = 0.001
@@ -265,6 +278,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WhiteFade:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_01fcq"]
 _data = {
@@ -284,9 +309,9 @@ offset_bottom = 156.0
 color = Color(0, 0, 0, 1)
 
 [node name="Stars2" type="GPUParticles2D" parent="."]
-position = Vector2(0, 98.5)
-emitting = false
+position = Vector2(2, 98.5)
 amount = 150
+texture = ExtResource("1_ynj80")
 lifetime = 40.0
 preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_jpupr")
@@ -306,6 +331,18 @@ position = Vector2(0, 156)
 scale = Vector2(2.421875, 2.421875)
 texture = ExtResource("2_ynj80")
 
+[node name="Copy" type="Sprite2D" parent="Cityoftears"]
+position = Vector2(-64, 0)
+rotation = 3.1415927
+scale = Vector2(1.0000516, -1.0000516)
+texture = ExtResource("2_ynj80")
+
+[node name="Copy2" type="Sprite2D" parent="Cityoftears"]
+position = Vector2(64, -4.7683716e-07)
+rotation = 3.1415927
+scale = Vector2(1.0000516, -1.0000516)
+texture = ExtResource("2_ynj80")
+
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_01fcq")
@@ -313,3 +350,10 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)
+
+[node name="WhiteFade" type="ColorRect" parent="."]
+offset_left = -279.0
+offset_top = -135.0
+offset_right = 290.0
+offset_bottom = 126.0
+color = Color(1, 1, 1, 0)
