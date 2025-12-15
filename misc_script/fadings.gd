@@ -7,3 +7,4 @@ func _ready() -> void:
 func loose_fade():
 	play("Fade")
 	print("aaaaaaaaaaaaaaaaaaaaaaaaa")
+	get_tree().change_scene_to_file()

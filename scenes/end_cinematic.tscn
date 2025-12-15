@@ -1,0 +1,315 @@
+[gd_scene load_steps=24 format=3 uid="uid://d2ouy0hx7rpnr"]
+
+[ext_resource type="Texture2D" uid="uid://b8aaknx7qn5kl" path="res://assets/textures/player/player3.png" id="1_ehe15"]
+[ext_resource type="Texture2D" uid="uid://r7liygkjkwf8" path="res://assets/textures/map/cityoftears.png" id="2_ynj80"]
+[ext_resource type="Texture2D" uid="uid://bjso805bu6yl1" path="res://assets/textures/map/explosion.png" id="3_my8gd"]
+
+[sub_resource type="GDScript" id="GDScript_ehe15"]
+resource_name = "StartofEnd"
+script/source = "extends Node2D
+
+func _ready() -> void:
+	$Animator.play(\"End\")
+"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jpupr"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(180.345, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11sxw"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68ac4"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emcoi"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_entkx"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u73kn"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6lae"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5r3e"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xi7n"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg6k0"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaxiv"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbxht"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21h03"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgvsf"]
+atlas = ExtResource("3_my8gd")
+region = Rect2(0, 768, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t5aq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11sxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68ac4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emcoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_entkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u73kn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6lae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5r3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xi7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg6k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaxiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbxht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21h03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgvsf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_a4btt"]
+resource_name = "Explosion"
+
+[sub_resource type="Animation" id="Animation_ehe15"]
+resource_name = "End"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.99, 7.04),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-96, -117.999985), Vector2(0, -32.999992), Vector2(0, 56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stars2:process_material:initial_velocity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.99, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5, 10), Vector2(30, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.11, 5.09),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5707964, 3.1415927]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cityoftears:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.2, 8.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 156), Vector2(0, 14)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Explosion:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Explosion")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(10.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ynj80"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-96, -117.999985)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stars2:process_material:initial_velocity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5707964]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cityoftears:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 156)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Explosion:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_01fcq"]
+_data = {
+&"End": SubResource("Animation_ehe15"),
+&"Explosion": SubResource("Animation_a4btt"),
+&"RESET": SubResource("Animation_ynj80")
+}
+
+[node name="EndCinematic" type="Node2D"]
+script = SubResource("GDScript_ehe15")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -297.0
+offset_top = -156.0
+offset_right = 322.0
+offset_bottom = 156.0
+color = Color(0, 0, 0, 1)
+
+[node name="Stars2" type="GPUParticles2D" parent="."]
+position = Vector2(0, 98.5)
+emitting = false
+amount = 150
+lifetime = 40.0
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_jpupr")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(-96, -117.999985)
+rotation = 1.5707964
+texture = ExtResource("1_ehe15")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.99999434, -18.000008)
+scale = Vector2(1.9375, 1.9375)
+sprite_frames = SubResource("SpriteFrames_6t5aq")
+
+[node name="Cityoftears" type="Sprite2D" parent="."]
+position = Vector2(0, 156)
+scale = Vector2(2.421875, 2.421875)
+texture = ExtResource("2_ynj80")
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_01fcq")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
