@@ -65,9 +65,10 @@ func _process(delta: float) -> void:
 		Global.customers_served += 1
 		if is_correct_recipy():
 			$Happy.play()
+			Global.add_life.emit(1)
 		else:
 			$Angry.play()
-			Global.loose.emit()
+			Global.reduce_life.emit(3)
 		Global.asked_ingredients.clear()
 		Global.ice_cream_ingredients.clear()
 	

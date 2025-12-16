@@ -11,6 +11,8 @@ script/source = "extends Node2D
 
 func _ready() -> void:
 	$Animator.play(\"End\")
+	await $Animator.animation_finished
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
 "
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jpupr"]

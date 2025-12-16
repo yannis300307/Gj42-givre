@@ -6,6 +6,9 @@ signal customer_leave
 signal need_camera_focus(pos: Vector2, zoom_level: float)
 signal release_camera
 signal loose
+signal set_life(level: int)
+signal reduce_life(amount: int)
+signal add_life(amount: int)
 
 var ice_cream_ingredients = {}
 var asked_ingredients = {}
@@ -30,6 +33,7 @@ enum PlayerInteractionType {
 	USE_BLENDER,
 	PICKUP_ICE_CREAM,
 	NEED_CORNETO,
+	CLEAR_INVENTORY,
 	NONE,
 }
 

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://byxfbldu2vi02"]
+
+[ext_resource type="Script" uid="uid://blpfetkvp40th" path="res://misc_script/life_counter.gd" id="1_coxm1"]
+[ext_resource type="Texture2D" uid="uid://rsae58o2ncpf" path="res://assets/textures/ui/star_empty.png" id="2_tga1s"]
+
+[node name="LifeCounter" type="Node2D"]
+script = ExtResource("1_coxm1")
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="Star1" type="Sprite2D" parent="Stars"]
+texture = ExtResource("2_tga1s")
+
+[node name="Star2" type="Sprite2D" parent="Stars"]
+position = Vector2(19, 0)
+texture = ExtResource("2_tga1s")
+
+[node name="Star3" type="Sprite2D" parent="Stars"]
+position = Vector2(38, 0)
+texture = ExtResource("2_tga1s")
+
+[node name="Star4" type="Sprite2D" parent="Stars"]
+position = Vector2(57, 0)
+texture = ExtResource("2_tga1s")
+
+[node name="Star5" type="Sprite2D" parent="Stars"]
+position = Vector2(76, 0)
+texture = ExtResource("2_tga1s")

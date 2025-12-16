@@ -1,0 +1,201 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw885ul3h7jwb"]
+
+[ext_resource type="Texture2D" uid="uid://c41k4jc5p60la" path="res://assets/textures/particles/mystic.png" id="1_8ln24"]
+[ext_resource type="Texture2D" uid="uid://cfe54wc5ybjfq" path="res://assets/textures/ui/button.png" id="1_ekxnf"]
+[ext_resource type="Script" uid="uid://rra3fa6rhpvj" path="res://misc_script/main_menu.gd" id="1_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://d3x85vt2eve46" path="res://assets/textures/ui/menu_bg.png" id="1_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bswhblkym3568" path="res://assets/textures/ui/button_hover.png" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://d1327gbgbnog1" path="res://assets/textures/title.png" id="4_8ln24"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rtw2f"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 542, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 200.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 0, 0)
+scale_min = 10.0
+scale_max = 12.0
+
+[sub_resource type="Animation" id="Animation_rtw2f"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oa1go"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbmy8"]
+_data = {
+&"RESET": SubResource("Animation_oa1go"),
+&"fade_out": SubResource("Animation_rtw2f")
+}
+
+[node name="MainMenu" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+script = ExtResource("1_rtw2f")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -101.0
+offset_top = -74.0
+offset_right = 2032.0
+offset_bottom = 1158.0
+color = Color(3.272891e-06, 0.7585546, 0.8865992, 1)
+
+[node name="BgPaticles" type="GPUParticles2D" parent="."]
+position = Vector2(1950, 542)
+amount = 100
+texture = ExtResource("1_8ln24")
+lifetime = 10.0
+preprocess = 40.0
+process_material = SubResource("ParticleProcessMaterial_rtw2f")
+
+[node name="Garbage" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="TitleBackground" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -684.0
+offset_top = -407.0
+offset_right = -531.8889
+offset_bottom = -362.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(9, 9)
+texture = ExtResource("1_wu84c")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = 75.0
+offset_right = 276.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_ekxnf")
+texture_hover = ExtResource("2_bqqt6")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -56.5
+offset_right = 76.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 76
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = 250.0
+offset_right = 276.0
+offset_bottom = 388.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_ekxnf")
+texture_hover = ExtResource("2_bqqt6")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -56.5
+offset_right = 76.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 76
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(964, 314)
+scale = Vector2(9.335938, 9.335938)
+texture = ExtResource("4_8ln24")
+
+[node name="GarbageTimer" type="Timer" parent="."]
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -114.0
+offset_top = -79.0
+offset_right = 2070.0
+offset_bottom = 1166.0
+color = Color(1, 1, 1, 0)
+
+[node name="Transitions" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tbmy8")
+}
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

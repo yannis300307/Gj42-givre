@@ -12,9 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cty3ua8yd5xjx" path="res://assets/textures/player/player8.png" id="10_w1o2u"]
 [ext_resource type="AudioStream" uid="uid://cmv85liopf587" path="res://assets/audio/players_movments.wav" id="11_3nfmf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8sra"]
-radius = 9.0
-height = 25.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_3nfmf"]
 
 [sub_resource type="Curve" id="Curve_4vq5b"]
 _data = [Vector2(0, 0.70786524), 0.0, 0.0, 0, 0, Vector2(0.78, 0.28089893), -2.0224707, -2.0224707, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -81,7 +79,7 @@ font_color = Color(0, 0, 0, 1)
 script = ExtResource("1_ykyjo")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_i8sra")
+shape = SubResource("CircleShape2D_3nfmf")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 texture = ExtResource("2_4vq5b")
@@ -175,6 +173,22 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Need a corneto"
+label_settings = SubResource("LabelSettings_ykyjo")
+horizontal_alignment = 1
+
+[node name="ClearInventory" type="Label" parent="ControlsLabels"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press E to clear the bag"
 label_settings = SubResource("LabelSettings_ykyjo")
 horizontal_alignment = 1
 

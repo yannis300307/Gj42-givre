@@ -15,36 +15,49 @@ func _process(_delta: float) -> void:
 			$ControlsLabels/Blend.visible = false
 			$ControlsLabels/PickupIceCream.visible = false
 			$ControlsLabels/NeedCorento.visible = false
+			$ControlsLabels/ClearInventory.visible = false
 		Global.PlayerInteractionType.PLACE_ITEM:
 			$ControlsLabels/Pickup.visible = false
 			$ControlsLabels/Place.visible = true
 			$ControlsLabels/Blend.visible = false
 			$ControlsLabels/PickupIceCream.visible = false
 			$ControlsLabels/NeedCorento.visible = false
+			$ControlsLabels/ClearInventory.visible = false
 		Global.PlayerInteractionType.NONE:
 			$ControlsLabels/Pickup.visible = false
 			$ControlsLabels/Place.visible = false
 			$ControlsLabels/Blend.visible = false
 			$ControlsLabels/PickupIceCream.visible = false
 			$ControlsLabels/NeedCorento.visible = false
+			$ControlsLabels/ClearInventory.visible = false
 		Global.PlayerInteractionType.USE_BLENDER:
 			$ControlsLabels/Pickup.visible = false
 			$ControlsLabels/Place.visible = false
 			$ControlsLabels/Blend.visible = true
 			$ControlsLabels/PickupIceCream.visible = false
 			$ControlsLabels/NeedCorento.visible = false
+			$ControlsLabels/ClearInventory.visible = false
 		Global.PlayerInteractionType.PICKUP_ICE_CREAM:
 			$ControlsLabels/Pickup.visible = false
 			$ControlsLabels/Place.visible = false
 			$ControlsLabels/Blend.visible = false
 			$ControlsLabels/PickupIceCream.visible = true
 			$ControlsLabels/NeedCorento.visible = false
+			$ControlsLabels/ClearInventory.visible = false
 		Global.PlayerInteractionType.NEED_CORNETO:
 			$ControlsLabels/Pickup.visible = false
 			$ControlsLabels/Place.visible = false
 			$ControlsLabels/Blend.visible = false
 			$ControlsLabels/PickupIceCream.visible = false
 			$ControlsLabels/NeedCorento.visible = true
+			$ControlsLabels/ClearInventory.visible = false
+		Global.PlayerInteractionType.CLEAR_INVENTORY:
+			$ControlsLabels/Pickup.visible = false
+			$ControlsLabels/Place.visible = false
+			$ControlsLabels/Blend.visible = false
+			$ControlsLabels/PickupIceCream.visible = false
+			$ControlsLabels/NeedCorento.visible = false
+			$ControlsLabels/ClearInventory.visible = true
 
 func _physics_process(delta: float) -> void:
 	var acc_state: int = 0
