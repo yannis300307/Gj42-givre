@@ -20,21 +20,6 @@ gravity = Vector3(0, 0, 0)
 scale_min = 10.0
 scale_max = 12.0
 
-[sub_resource type="Animation" id="Animation_rtw2f"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Fade:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_oa1go"]
 length = 0.001
 tracks/0/type = "value"
@@ -50,6 +35,21 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_rtw2f"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbmy8"]
 _data = {
 &"RESET": SubResource("Animation_oa1go"),
@@ -57,15 +57,23 @@ _data = {
 }
 
 [node name="MainMenu" type="Control"]
-custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1920.0
-offset_bottom = -1080.0
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Main" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchor_right = 48.000004
+anchor_bottom = 27.000002
+offset_right = -0.00012207031
+offset_bottom = -0.00012207031
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_rtw2f")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="Main"]
 layout_mode = 0
 offset_left = -101.0
 offset_top = -74.0
@@ -73,7 +81,7 @@ offset_right = 2032.0
 offset_bottom = 1158.0
 color = Color(3.272891e-06, 0.7585546, 0.8865992, 1)
 
-[node name="BgPaticles" type="GPUParticles2D" parent="."]
+[node name="BgPaticles" type="GPUParticles2D" parent="Main"]
 position = Vector2(1950, 542)
 amount = 100
 texture = ExtResource("1_8ln24")
@@ -81,10 +89,10 @@ lifetime = 10.0
 preprocess = 40.0
 process_material = SubResource("ParticleProcessMaterial_rtw2f")
 
-[node name="Garbage" type="Sprite2D" parent="."]
+[node name="Garbage" type="Sprite2D" parent="Main"]
 scale = Vector2(2, 2)
 
-[node name="TitleBackground" type="NinePatchRect" parent="."]
+[node name="TitleBackground" type="NinePatchRect" parent="Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,7 +113,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="Play" type="TextureButton" parent="."]
+[node name="Play" type="TextureButton" parent="Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -122,7 +130,7 @@ texture_normal = ExtResource("1_ekxnf")
 texture_hover = ExtResource("2_bqqt6")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Play"]
+[node name="Label" type="Label" parent="Main/Play"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -141,7 +149,7 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Credits" type="TextureButton" parent="."]
+[node name="Credits" type="TextureButton" parent="Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -158,7 +166,7 @@ texture_normal = ExtResource("1_ekxnf")
 texture_hover = ExtResource("2_bqqt6")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Credits"]
+[node name="Label" type="Label" parent="Main/Credits"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,14 +185,14 @@ text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title" type="Sprite2D" parent="."]
+[node name="Title" type="Sprite2D" parent="Main"]
 position = Vector2(964, 314)
 scale = Vector2(9.335938, 9.335938)
 texture = ExtResource("4_8ln24")
 
-[node name="GarbageTimer" type="Timer" parent="."]
+[node name="GarbageTimer" type="Timer" parent="Main"]
 
-[node name="Fade" type="ColorRect" parent="."]
+[node name="Fade" type="ColorRect" parent="Main"]
 visible = false
 layout_mode = 0
 offset_left = -114.0
@@ -193,9 +201,9 @@ offset_right = 2070.0
 offset_bottom = 1166.0
 color = Color(1, 1, 1, 0)
 
-[node name="Transitions" type="AnimationPlayer" parent="."]
+[node name="Transitions" type="AnimationPlayer" parent="Main"]
 libraries = {
 &"": SubResource("AnimationLibrary_tbmy8")
 }
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/Play" to="Main" method="_on_play_pressed"]
