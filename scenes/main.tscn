@@ -822,7 +822,6 @@ move_threshold = 600
 
 [node name="LifeCounter" parent="Ui" instance=ExtResource("56_1v6qk")]
 position = Vector2(1543, 52)
-scale = Vector2(4, 4)
 
 [node name="GameOver" parent="Ui" instance=ExtResource("45_txyw0")]
 visible = false

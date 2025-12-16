@@ -1,12 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://byxfbldu2vi02"]
+[gd_scene load_steps=5 format=3 uid="uid://byxfbldu2vi02"]
 
 [ext_resource type="Script" uid="uid://blpfetkvp40th" path="res://misc_script/life_counter.gd" id="1_coxm1"]
 [ext_resource type="Texture2D" uid="uid://rsae58o2ncpf" path="res://assets/textures/ui/star_empty.png" id="2_tga1s"]
+[ext_resource type="Texture2D" uid="uid://c41k4jc5p60la" path="res://assets/textures/particles/mystic.png" id="3_tga1s"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t4135"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(156, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 60.0
+initial_velocity_min = -60.0
+initial_velocity_max = -30.0
+gravity = Vector3(0, 60, 0)
+scale_min = 4.0
+scale_max = 4.0
 
 [node name="LifeCounter" type="Node2D"]
 script = ExtResource("1_coxm1")
 
 [node name="Stars" type="Node2D" parent="."]
+scale = Vector2(4, 4)
 
 [node name="Star1" type="Sprite2D" parent="Stars"]
 texture = ExtResource("2_tga1s")
@@ -26,3 +42,13 @@ texture = ExtResource("2_tga1s")
 [node name="Star5" type="Sprite2D" parent="Stars"]
 position = Vector2(76, 0)
 texture = ExtResource("2_tga1s")
+
+[node name="Dopamin" type="GPUParticles2D" parent="."]
+position = Vector2(152, -27)
+emitting = false
+amount = 50
+texture = ExtResource("3_tga1s")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_t4135")

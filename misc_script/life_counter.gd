@@ -11,6 +11,9 @@ const half_star = preload("res://assets/textures/ui/star_half.png")
 func set_life(level: int):
 	var remaining = level
 	current_life = level
+	if current_life > 10:
+		current_life = 10
+		$Dopamin.restart()
 
 	for star in $Stars.get_children():
 		if remaining == 1:
